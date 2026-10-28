@@ -8,7 +8,7 @@ import { cardAltText, cardTitleText, fileStem } from '../assets/format.js';
 const T = globalThis.ODOMAP_TOKENS;
 const $ = id => document.getElementById(id);
 const PREFS_KEY = 'odomap.viewer.v1';
-const PRIVACY = '이 기록은 서버에 저장되지 않아요. QR 안에 담겨 이 휴대폰에서만 그려져요.';
+const PRIVACY = '카드 데이터는 QR 주소의 # 뒤에만 있어요. 서버로 전송되지 않고 이 휴대폰에서 그려져요.';
 
 const ua = navigator.userAgent;
 const IS_IOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -494,11 +494,11 @@ function showEmpty(error) {
   if (!error || error.code === 'empty') return;
   const steps = $('empty-steps');
   if (error.unsupported) {
-    $('empty-title').textContent = '앱을 업데이트해 주세요';
-    $('empty-body').textContent = '이 카드는 이 페이지가 아직 모르는 새 형식으로 만들어졌어요. 차의 대동차지도 앱을 최신으로 업데이트한 뒤 QR을 다시 만들어 주세요. 페이지를 새로고침하면 될 때도 있어요.';
+    $('empty-title').textContent = '이 페이지가 읽을 수 없는 카드 형식이에요';
+    $('empty-body').textContent = '카드 데이터의 형식 버전, 카드 종류, 지역 목록 버전 중 하나가 이 페이지보다 새로워요. 페이지를 새로고침해 최신 페이지를 받은 뒤 QR을 다시 찍어 주세요.';
   } else {
-    $('empty-title').textContent = '카드를 읽지 못했어요';
-    $('empty-body').textContent = 'QR 주소가 중간에 잘렸거나 바뀐 것 같아요. 차 화면의 QR을 휴대폰 카메라로 다시 찍어 주세요.';
+    $('empty-title').textContent = '카드 데이터를 읽지 못했어요';
+    $('empty-body').textContent = '주소의 # 뒤 데이터가 잘렸거나 형식에 맞지 않아요. 차 화면의 QR을 휴대폰 카메라로 다시 찍어 주세요. 주소를 복사해 붙여 넣었다면 # 뒤 끝까지 복사됐는지 확인해 주세요.';
   }
   steps.hidden = true;
 }

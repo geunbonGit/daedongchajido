@@ -12,6 +12,7 @@ import re
 import sys
 
 import docx
+import docx.oxml.ns
 
 NAME = "편재식"
 APP = "대동차지도"
@@ -149,6 +150,9 @@ def main(form, md_path, out):
     secs = {n: [l for l in ls if not l.startswith("[")] for n, ls in secs.items()}
     for n in range(1, 9):
         put(d.tables[n].rows[0].cells[0], secs.get(n, [""]))
+        # 긴 칸이 통째로 다음 쪽으로 밀리지 않게 쪽 넘김을 허용한다
+        for el in d.tables[n]._tbl.iter(docx.oxml.ns.qn("w:cantSplit")):
+            el.getparent().remove(el)
     d.tables[9].rows[1].cells[1].text = NAME
     d.save(out)
 

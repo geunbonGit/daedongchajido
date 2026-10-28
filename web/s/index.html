@@ -9,11 +9,11 @@
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#EFEFED" />
     <title>대동차지도 카드</title>
-    <meta name="description" content="차에서 QR로 넘어온 대동차지도 드라이브 카드 — 기록은 서버로 가지 않고 이 휴대폰에서만 그려져요." />
+    <meta name="description" content="대동차지도 앱의 공유 QR로 여는 카드 페이지. 휴대폰 브라우저가 주소의 # 뒤 데이터로 카드 이미지를 그리고, 이 데이터는 서버로 전송되지 않는다." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="대동차지도" />
-    <meta property="og:title" content="대동차지도 — 달린 길이 지도가 된다" />
-    <meta property="og:description" content="차에서 QR로 넘어온 드라이브 카드. 기록은 서버로 가지 않아요." />
+    <meta property="og:title" content="대동차지도 공유 카드" />
+    <meta property="og:description" content="대동차지도 앱의 QR로 연 드라이브 카드. 카드 데이터는 주소의 # 뒤에만 있고 서버로 전송되지 않는다." />
     <!-- generic preview (no numbers): link previews never see the card data, which lives only in the # fragment -->
     <meta property="og:image" content="https://geunbongit.github.io/daedongchajido/assets/og-card.png" />
     <meta property="og:image:width" content="1200" />
@@ -96,28 +96,28 @@
             <span class="circle"><svg aria-hidden="true"><use href="#i-share" /></svg></span><span class="label">공유하기</span>
           </button>
         </div>
-        <p class="status" id="status" role="status" aria-live="polite"><span><svg aria-hidden="true"><use href="#i-lock" /></svg><b class="status-text">이 기록은 서버에 저장되지 않아요. QR 안에 담겨 이 휴대폰에서만 그려져요.</b></span></p>
+        <p class="status" id="status" role="status" aria-live="polite"><span><svg aria-hidden="true"><use href="#i-lock" /></svg><b class="status-text">카드 데이터는 QR 주소의 # 뒤에만 있어요. 서버로 전송되지 않고 이 휴대폰에서 그려져요.</b></span></p>
       </section>
     </div>
 
     <section class="empty" id="empty" hidden>
       <a class="lockup" href="../"><span>대동차지도</span></a>
       <div class="empty-card">
-        <h1 id="empty-title">차에서 QR을 찍어 열어 주세요</h1>
-        <p id="empty-body">대동차지도 공유 화면의 QR을 휴대폰 카메라로 찍으면, 드라이브 카드가 이 페이지에 그려져요.</p>
+        <h1 id="empty-title">차 화면의 QR을 휴대폰 카메라로 찍어 주세요</h1>
+        <p id="empty-body">이 주소에는 카드 데이터(# 뒤 부분)가 없어요. 대동차지도 공유 화면의 QR을 찍으면 데이터가 든 주소가 열리고, 이 페이지가 카드 이미지를 그려요.</p>
         <ol class="steps" id="empty-steps">
-          <li><span><b>차에서</b> 기록 화면의 <b>공유</b>를 눌러요 (정차 중에만).</span></li>
-          <li><span><b>휴대폰 카메라</b>로 화면의 QR을 찍어요.</span></li>
-          <li><span>카드를 <b>저장</b>하거나 인스타그램·카카오톡으로 <b>공유</b>해요.</span></li>
+          <li><span><b>차에서</b> <b>공유</b>를 누르고 카드(이번 드라이브 · 내 지도 · 가 본 곳)를 골라요. 공유는 정차 중에만 열려요.</span></li>
+          <li><span><b>휴대폰 카메라</b>로 차 화면의 QR을 찍어요.</span></li>
+          <li><span>카드 이미지(1080×1080 또는 1080×1920)를 <b>저장</b>하거나 인스타그램·카카오톡으로 <b>공유</b>해요.</span></li>
         </ol>
-        <p class="empty-note"><svg aria-hidden="true"><use href="#i-lock" /></svg><span>드라이브 기록은 QR 주소의 <code>#</code> 뒤에만 담겨요. 브라우저는 이 부분을 서버로 보내지 않아서, 기록은 이 휴대폰에서만 그려져요.</span></p>
+        <p class="empty-note"><svg aria-hidden="true"><use href="#i-lock" /></svg><span>카드 데이터는 QR 주소의 <code>#</code> 뒤에만 들어 있어요. 브라우저는 <code>#</code> 뒤 내용을 서버로 보내지 않아서, 카드는 이 휴대폰 브라우저 안에서 그려지고 서버에 저장되지 않아요.</span></p>
         <a class="pill-button" id="empty-sample" href="#">샘플 카드 보기</a>
-        <a class="text-link" href="../">대동차지도가 뭔가요? →</a>
+        <a class="text-link" href="../">대동차지도 소개 페이지 →</a>
       </div>
     </section>
 
     <footer class="about" id="about">
-      <p><a class="text-link" href="../">대동차지도 — 달린 길이 지도가 된다 · 소개 보기 →</a></p>
+      <p><a class="text-link" href="../">대동차지도 — 차가 달린 도로를 자동으로 기록해 지도에 그리는 Pleos Connect 앱 · 소개 보기 →</a></p>
       <p class="credit">
         지역 경계: 본 데이터는 통계청 통계지리정보서비스(SGIS, <a href="https://sgis.kostat.go.kr" rel="noopener">sgis.kostat.go.kr</a>)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor,
         <a href="https://github.com/vuski/admdongkor" rel="noopener">github.com/vuski/admdongkor</a>), <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="noopener">CC BY 4.0</a>으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.

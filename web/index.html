@@ -7,12 +7,12 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#EFEFED" />
-    <title>대동차지도 (大東車地圖) — 달린 길이 지도가 된다</title>
-    <meta name="description" content="대동차지도(大東車地圖) — 자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖). Pleos Connect 차량용 드라이브 기록 앱. 시동만 걸면 달린 길이 나만의 지도가 되고, 처음 달린 길과 처음 가 본 시·군·구를 세어 줘요." />
+    <title>대동차지도 — 차가 달린 도로를 자동으로 기록해 지도에 그리는 Pleos Connect 앱</title>
+    <meta name="description" content="대동차지도는 차가 달린 경로를 자동으로 기록해 한 장의 지도에 그리고, 처음 달린 도로의 길이와 처음 들어간 시·군·구(전국 230곳 기준)를 세는 Pleos Connect 앱이다. 기어 D에서 기록을 시작하고 P에서 저장한다." />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="대동차지도" />
-    <meta property="og:title" content="대동차지도 (大東車地圖) — 달린 길이 지도가 된다" />
-    <meta property="og:description" content="자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖). 시동만 걸면 달린 길이 나만의 지도가 돼요. 처음 달린 길과 처음 가 본 시·군·구를 세어 주는 Pleos Connect 앱." />
+    <meta property="og:title" content="대동차지도 — 달린 도로를 자동으로 기록해 지도에 그리는 Pleos Connect 앱" />
+    <meta property="og:description" content="기어 D에서 1초 간격으로 위치 기록을 시작하고 P에서 경로를 저장한다. 드라이브마다 처음 달린 도로의 길이를 세고, 전국 230개 시·군·구 중 방문한 곳을 센다." />
     <meta property="og:url" content="https://geunbongit.github.io/daedongchajido/" />
     <meta property="og:image" content="https://geunbongit.github.io/daedongchajido/assets/og.png" />
     <meta property="og:image:width" content="1200" />
@@ -53,12 +53,12 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-text">
-          <p class="eyebrow">Pleos Connect 앱 · 현대자동차 공모전 출품작</p>
+          <p class="eyebrow">Pleos Connect 앱 · 차량용 앱 개발 공모전 출품작</p>
           <h1 id="hero-title" class="name">대동차지도</h1>
           <p class="hanja" lang="zh-Hant">大東車地圖</p>
-          <p class="meaning">자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖)</p>
-          <p class="tagline">달린 길이 지도가 된다</p>
-          <p class="lead">시동만 걸면 내가 달린 길이 나만의 지도가 돼요. 처음 달린 길과 처음 가 본 시·군·구를 세어 주는 드라이브 기록 앱이에요.</p>
+          <p class="meaning">대동여지도(김정호, 1861)의 ‘여(수레)’를 ‘차’로 바꾼 이름</p>
+          <p class="tagline">달린 도로를 자동으로 기록해 지도에 그린다</p>
+          <p class="lead">기어를 D에 두면 1초 간격으로 위치를 기록하고, P에 두면 경로와 주행 거리를 저장한다. 드라이브마다 처음 달린 도로의 길이를 세고, 전국 230개 시·군·구 중 방문한 곳을 센다.</p>
           <div class="cta">
             <a class="pill pill-ink" href="https://github.com/geunbonGit/daedongchajido/releases/latest" rel="noopener"><svg aria-hidden="true"><use href="#i-down" /></svg>APK 받기</a>
             <a class="pill pill-soft" href="https://github.com/geunbonGit/daedongchajido" rel="noopener"><svg aria-hidden="true"><use href="#i-code" /></svg>소스 코드</a>
@@ -66,68 +66,76 @@
         </div>
         <a class="hero-card" id="hero-card" data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPMAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMDQKBAEAIBQGAYBAABABAQAQAAQGAYBAEAQEBIIAIBAEAQEAQCQKAIAAIAACAICAEFQWAIBAEBQAAQAAEAQEAICAEBACAIBAEBQCAQAAEAAIAMBAABACAQEAAAQABAAAEAACBAGAEAQGAQBAEAQEAQGAEBAEAQDAEAQAAYEAEBQCBIBAIBQEAIBAICQEAYEAUAACAEAAAAIBAEAQAAIAAMCAGBQBAQAQIBIEAEAACAQBAAAQAAIAAMAAGAQBAMAQKAIBAEAQAAIBAAAQCAIAAUAAGAABAAAQC" aria-label="샘플 드라이브 카드 열기">
           <span class="hero-card-frame" id="hero-card-frame"></span>
-          <span class="hero-card-cap">차에서 QR로 넘어오는 공유 카드 · 눌러서 열기</span>
+          <span class="hero-card-cap">샘플 드라이브 카드 · 누르면 공유 페이지에서 열린다</span>
         </a>
       </section>
 
       <section class="block" aria-labelledby="demo-title">
         <h2 id="demo-title">시연 영상</h2>
-        <p class="sub">시동을 걸고, 달리고, 주차한 뒤 QR로 카드를 넘기기까지.</p>
+        <p class="sub">1분 56초. 출발(기어 D)부터 주차(기어 P) 뒤 도착 요약, 휴대폰으로 QR을 찍어 카드를 여는 과정까지.</p>
         <figure class="video" id="demo">
           <video controls playsinline preload="metadata" poster="assets/demo-poster.jpg" aria-label="대동차지도 시연 영상">
             <source src="assets/demo.mp4" type="video/mp4" />
           </video>
-          <figcaption class="video-missing" hidden><svg aria-hidden="true"><use href="#i-play" /></svg>시연 영상을 곧 올릴게요</figcaption>
+          <figcaption class="video-missing" hidden><svg aria-hidden="true"><use href="#i-play" /></svg>영상 파일을 불러오지 못했다</figcaption>
         </figure>
       </section>
 
       <section class="block" aria-labelledby="screens-title">
         <h2 id="screens-title">차 화면</h2>
-        <p class="sub">Pleos Connect 화면 그대로예요. 지도·통계는 정차 중에만 열리고, 주행 중에는 음성으로만 알려 줘요.</p>
+        <p class="sub">Pleos Connect 에뮬레이터의 앱 화면(1682×1210)이다. 주행 중에는 기록 목록·공유·다시 보기·배색 변경이 막히고, 안내는 음성으로만 한다.</p>
         <ul class="screens">
-          <li><img src="assets/screens/01.png" data-fallback="assets/screens/placeholder.svg" alt="첫 화면 — 지금까지 달린 내 지도와 오늘 달린 거리, 가 본 곳" loading="lazy" width="1682" height="1210" /><span>내 지도</span></li>
-          <li><img src="assets/screens/02.png" data-fallback="assets/screens/placeholder.svg" alt="밤 모드 — 차가 밤이면 지도와 판이 밤 배색으로 바뀐 첫 화면" loading="lazy" width="1682" height="1210" /><span>밤 배색</span></li>
-          <li><img src="assets/screens/03.png" data-fallback="assets/screens/placeholder.svg" alt="가 본 곳 — 전국 230곳 시·군·구 지도와 시·도별 방문 수" loading="lazy" width="1682" height="1210" /><span>가 본 곳</span></li>
-          <li><img src="assets/screens/04.png" data-fallback="assets/screens/placeholder.svg" alt="공유 화면 — 카드 미리보기와 휴대폰으로 넘기는 QR 코드" loading="lazy" width="1682" height="1210" /><span>QR 공유</span></li>
+          <li><img src="assets/screens/01.png" data-fallback="assets/screens/placeholder.svg" alt="첫 화면 — 저장한 모든 드라이브의 경로를 그린 지도, 오늘 달린 거리, 오늘 처음 달린 거리, 가 본 곳 수" loading="lazy" width="1682" height="1210" /><span>내 지도</span></li>
+          <li><img src="assets/screens/02.png" data-fallback="assets/screens/placeholder.svg" alt="밤 배색 — 배색이 ‘자동’이고 차가 야간 모드일 때의 첫 화면" loading="lazy" width="1682" height="1210" /><span>밤 배색 (‘자동’ + 차 야간 모드)</span></li>
+          <li><img src="assets/screens/03.png" data-fallback="assets/screens/placeholder.svg" alt="가 본 곳 — 전국 230개 시·군·구 지도, 방문한 곳 수, 시·도별 방문 수" loading="lazy" width="1682" height="1210" /><span>가 본 곳 (230개 시·군·구)</span></li>
+          <li><img src="assets/screens/04.png" data-fallback="assets/screens/placeholder.svg" alt="공유 화면 — 카드 미리보기와 휴대폰 카메라로 찍는 QR 코드" loading="lazy" width="1682" height="1210" /><span>QR 공유</span></li>
         </ul>
       </section>
 
       <section class="block" aria-labelledby="what-title">
-        <h2 id="what-title">무엇을 하나요</h2>
+        <h2 id="what-title">기능</h2>
         <ol class="features">
           <li>
-            <b>시동만 걸면 기록돼요</b>
-            <p>기어와 속도로 주행 시작과 끝을 알아서 판단해요. 앱을 켜거나 끌 필요가 없어요.</p>
+            <b>기어 D에서 기록 시작, P에서 저장</b>
+            <p>기어가 D로 바뀌면 1초 간격으로 위치를 기록하고, P로 바뀌면 경로, 주행 거리, 처음 달린 거리, 지나간 시·군·구를 저장한다. 누르는 버튼은 없다. 기어 신호가 없는 차에서는 시속 5km 이상으로 10초 달리면 시작하고, 3분 멈춰 있으면 끝낸다.</p>
           </li>
           <li>
-            <b>달린 길이 한 장의 지도로 쌓여요</b>
-            <p>같은 길은 한 줄로 합치고, 자주 달린 길일수록 굵게 그려요. 종이 위에 먹으로 그린 듯한 지도예요.</p>
+            <b>모든 드라이브를 한 장의 지도에 그린다</b>
+            <p>같은 도로를 다시 달리면 기존 선에 합치고, 최대 약 30m 떨어진 왕복 차로는 한 줄로 그린다. 선 굵기는 지난 횟수에 따라 5단계(1회, 2회, 3~4회, 5~8회, 9회 이상)다. GPS가 끊긴 터널 구간은 3km·5분 이내면 직선으로 잇는다.</p>
           </li>
           <li>
-            <b>처음 달린 길을 따로 세어요</b>
-            <p>“오늘 42km 중 처음 달린 길 12.4km.” 익숙한 길 대신 새 길로 가 볼 이유가 생겨요.</p>
+            <b>처음 달린 도로의 길이를 센다</b>
+            <p>“오늘 42.1km 중 처음 달린 길 12.4km.” 같은 출퇴근길을 다시 달리면 0km다. 시연 주행에서 다른 다리로 돌아간 날은 20.4km로 계산됐고, 실제 다른 구간의 길이도 20.4km다.</p>
           </li>
           <li>
-            <b>전국 230곳 시·군·구를 모아요</b>
-            <p>처음 들어선 지역은 음성으로만 알려 줘요. 주행 중에는 화면을 쓰지 않아요.</p>
+            <b>전국 230개 시·군·구 중 방문한 곳을 센다</b>
+            <p>한 지역 안에 30초 이상 있으면 방문으로 기록한다. 주행 중 처음 들어간 지역은 음성으로 알린다: “양양군, 처음 와 보는 곳이에요.”</p>
           </li>
           <li>
-            <b>QR 하나로 휴대폰에 카드를 넘겨요</b>
-            <p>정차 중에 공유를 누르고 휴대폰 카메라로 QR을 찍으면, 이 사이트에서 카드가 그려져요.</p>
+            <b>200km 안의 미방문 지역 5곳으로 길 안내</b>
+            <p>아직 가지 않은 시·군·구 5곳을 직선거리 순으로 거리·방향과 함께 보여 준다. ‘길 안내’를 누르면 그 지역의 대표 지점을 목적지로 Pleos 내비게이션에 경로를 요청한다(NaviHelper SDK).</p>
+          </li>
+          <li>
+            <b>P에서 도착 요약, 다시 보기</b>
+            <p>이번 주행 거리, 처음 달린 길, 첫 방문 지역을 화면에 표시하고 “오늘 처음 달린 길 12.4킬로미터”처럼 음성으로 읽는다. 다시 보기는 드라이브 하나, 지역 하나, 또는 전체 기록을 달린 순서대로 3.5~12초 동안 다시 그린다.</p>
+          </li>
+          <li>
+            <b>QR로 휴대폰에 카드 3종을 보낸다</b>
+            <p>정차 중 공유를 누르면 이번 드라이브·내 지도·가 본 곳 카드가 QR로 나온다. 휴대폰 카메라로 찍으면 이 사이트가 1080×1080 또는 1080×1920 이미지를 그린다. 출발·도착 지점에서 300m 안의 경로는 카드에서 지운다(기본 켬).</p>
           </li>
         </ol>
       </section>
 
       <section class="block" aria-labelledby="samples-title">
-        <h2 id="samples-title">샘플 카드 보기</h2>
-        <p class="sub">차가 QR에 담아 보내는 것과 같은 형식의 샘플이에요. 비율과 바탕을 바꾸고 저장·공유해 볼 수 있어요.</p>
+        <h2 id="samples-title">샘플 카드</h2>
+        <p class="sub">차가 QR 주소에 넣는 것과 같은 형식의 데이터로 그린 카드다. 공유 페이지에서 비율(정사각형·스토리)과 바탕 배색을 바꾸고, 이미지로 저장하거나 공유한다.</p>
         <ul class="rows">
-          <li><a data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPMAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMDQKBAEAIBQGAYBAABABAQAQAAQGAYBAEAQEBIIAIBAEAQEAQCQKAIAAIAACAICAEFQWAIBAEBQAAQAAEAQEAICAEBACAIBAEBQCAQAAEAAIAMBAABACAQEAAAQABAAAEAACBAGAEAQGAQBAEAQEAQGAEBAEAQDAEAQAAYEAEBQCBIBAIBQEAIBAICQEAYEAUAACAEAAAAIBAEAQAAIAAMCAGBQBAQAQIBIEAEAACAQBAAAQAAIAAMAAGAQBAMAQKAIBAEAQAAIBAAAQCAIAAUAAGAABAAAQC"><b>드라이브 카드</b><span>주말 드라이브 · 가평 — 처음 달린 길</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
-          <li><a data-sample="trip" href="s/#AEAQDRQTYIB4OX72VMA47IYBAAG6VMEV5OTISIHMS6WO3FUJAEKQQZD3P2A4PTWQZAFQ2AQVMR5X5AOHZ3IMQAYFAUBNVSQEQS7Q6AABAIGAAAAABEAQCBYGAMIAIEAFBYAAUCYKAMFAOCAHAQBQGAAAAMDAKEACAYAAABIQAEHAEEQEBAAAECO6AEAAAGIOA4CAOARBCICBIAIGB4EC6LAVCI5TYAAOAQBA4BQIAIATECQ2AAFAGDAPBYBQQBYYBMPAGCQAEAAQMBYOAEJAKFQDDYAQ4DZQAEIA2GQDBYAREBQEAIEACNQCCIGDUAZYAJAAKRQADYBBIAI6BAUAQJQABYBSABRMAIFAYGAOEQBA4A2EAYMAACAJFQAQQAQKAQJAALQIDYAAQBI6CE2ACDQABYECEAQMAMJA2JQABICBAAAMAMRAEBAWBADAQAQIAEJAMEQADYCAYBAKCIMCMGAEBACBUEQYAAGAKMQHCYCRAAAMAICAIAQOAIKAYCACBQBQIAQCAQBAQAIIAMFAKCADAQAQ4AAMBAJBADAIBQCAMBAOBQIAACAABYCBQBQQAAJAUGACAYEAMBQKBQEAQDAGCQBBQBQOHRJAMHQIDAABMAYWAADAECAGBAMBYEAYBYFAQDQEAQHAIBAIAQDAEBQDBYARUAAGAIDAMCAOAQGAUCQQAIGAECAUCIBAMDTIBQNAQHQKCADBECREAIKAULAQDABAQAAGAEEASDQDBIBCYAAMAUHBGIADBYARAAQQAAIAECAEAYDAIJABCADQMAIIAIDAQBQCCIARMEAMAEEAABAGBAGAYBQGAYCAMBAOAQDBIEAEAYAAUAAMAUEBOCAJAABQCAYQCUJAEBAGAAEAMAQGAAFAEEQIAICAIAIB"><b>여행 카드</b><span>강릉 여행 — 긴 길도 QR 하나에</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
-          <li><a data-sample="myMap" href="s/#AEBAFRQTAAAJPVQD3G2QEDQAAELQGNIEAPRMUBEMX4HQYEQHCQBQEAAABUEAIBAAAAMUMA2AEELAGAYAAARRAAQIAMBQYCA6BUDQ6AYCH2NQCARNAICAEFILBABTIHZAAMBAAAADAQBAEAAAAEDAGAQAAABQYAQDAAAAOHQGDQAQEAAABYKAEAQAAADAYAQCAIBBEDQBAIAAABQGAIBAAAAACIAQEAAABMFAEAQAAARQAAICAAAA2AQCAIAAAEIMAEBEYCYEA4AQGG45AEOB2CBXAQBBENQEFIBAEAAADIUACAQAAABCMAQDAAABIABAGIAQGAAACAFAKHQCAUAAAKTAEYXAKSQKBYAQEAAAAQFAEAYAAAADMECSAEBAAAAUDIBAEAAABUSACAQAAAISIAQCAAAA2OQBAIAAACA4AIBAAAAYKIAQGAAAAEEA4BQCAIAAAVRKAEBAAAAUCABAEAAABAEACAQAAAOBEAQJAAAEUSQMDQOAEBAWJJWCWFQJB4LQCAICFOSQCDYRAEBDGNY3B4AQE6KJAUCQCAQNGMER2AICATBQEAYDAEBFL2IBAIHQCAQCBUCQOAICHUXQAKIBHRSSESZGAINJCAMCAECBAFQIBBLCWWA3SIASG2ASUAAQPDQCCBHAEWQ6KQBGICZUBZYBSYAKHQITQACIDYKA4YBYGANDUE3QIIMA6QBUJYKGQJBKBY5DYUQOGYATURCUCYIAEQBACYSDYDTIJTPACDZGAI4B2PACHAFAUOQLEYFCUDQ6DYSDUBIUEUDAGEATCIHAUBBCBABAEAQAAABAGAIVAIDBADJKBANB3FABGENB6PAJDQSVETI4AFJESHRHAESRIMYUCMLAGGA3HYGFAMZEABHB6"><b>내 지도</b><span>지금까지 달린 길 전부, 자주 간 길은 굵게</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
-          <li><a data-sample="regions" href="s/#AEBQBRQTAAAJPVQDAAHAAAIXRU2GAAAAAAAAAAAAAAABBQAAJABQAAAAAAAAAAGAJGAQAAA"><b>가 본 곳</b><span>전국 230곳 중 가 본 시·군·구</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPMAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMDQKBAEAIBQGAYBAABABAQAQAAQGAYBAEAQEBIIAIBAEAQEAQCQKAIAAIAACAICAEFQWAIBAEBQAAQAAEAQEAICAEBACAIBAEBQCAQAAEAAIAMBAABACAQEAAAQABAAAEAACBAGAEAQGAQBAEAQEAQGAEBAEAQDAEAQAAYEAEBQCBIBAIBQEAIBAICQEAYEAUAACAEAAAAIBAEAQAAIAAMCAGBQBAQAQIBIEAEAACAQBAAAQAAIAAMAAGAQBAMAQKAIBAEAQAAIBAAAQCAIAAUAAGAABAAAQC"><b>드라이브 카드</b><span>가평 주말 드라이브 — 주행 거리와 처음 달린 길</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="trip" href="s/#AEAQDRQTYIB4OX72VMA47IYBAAG6VMEV5OTISIHMS6WO3FUJAEKQQZD3P2A4PTWQZAFQ2AQVMR5X5AOHZ3IMQAYFAUBNVSQEQS7Q6AABAIGAAAAABEAQCBYGAMIAIEAFBYAAUCYKAMFAOCAHAQBQGAAAAMDAKEACAYAAABIQAEHAEEQEBAAAECO6AEAAAGIOA4CAOARBCICBIAIGB4EC6LAVCI5TYAAOAQBA4BQIAIATECQ2AAFAGDAPBYBQQBYYBMPAGCQAEAAQMBYOAEJAKFQDDYAQ4DZQAEIA2GQDBYAREBQEAIEACNQCCIGDUAZYAJAAKRQADYBBIAI6BAUAQJQABYBSABRMAIFAYGAOEQBA4A2EAYMAACAJFQAQQAQKAQJAALQIDYAAQBI6CE2ACDQABYECEAQMAMJA2JQABICBAAAMAMRAEBAWBADAQAQIAEJAMEQADYCAYBAKCIMCMGAEBACBUEQYAAGAKMQHCYCRAAAMAICAIAQOAIKAYCACBQBQIAQCAQBAQAIIAMFAKCADAQAQ4AAMBAJBADAIBQCAMBAOBQIAACAABYCBQBQQAAJAUGACAYEAMBQKBQEAQDAGCQBBQBQOHRJAMHQIDAABMAYWAADAECAGBAMBYEAYBYFAQDQEAQHAIBAIAQDAEBQDBYARUAAGAIDAMCAOAQGAUCQQAIGAECAUCIBAMDTIBQNAQHQKCADBECREAIKAULAQDABAQAAGAEEASDQDBIBCYAAMAUHBGIADBYARAAQQAAIAECAEAYDAIJABCADQMAIIAIDAQBQCCIARMEAMAEEAABAGBAGAYBQGAYCAMBAOAQDBIEAEAYAAUAAMAUEBOCAJAABQCAYQCUJAEBAGAAEAMAQGAAFAEEQIAICAIAIB"><b>여행 카드</b><span>강릉 여행 — 장거리 드라이브 1개를 QR 1개에 넣은 카드</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="myMap" href="s/#AEBAFRQTAAAJPVQD3G2QEDQAAELQGNIEAPRMUBEMX4HQYEQHCQBQEAAABUEAIBAAAAMUMA2AEELAGAYAAARRAAQIAMBQYCA6BUDQ6AYCH2NQCARNAICAEFILBABTIHZAAMBAAAADAQBAEAAAAEDAGAQAAABQYAQDAAAAOHQGDQAQEAAABYKAEAQAAADAYAQCAIBBEDQBAIAAABQGAIBAAAAACIAQEAAABMFAEAQAAARQAAICAAAA2AQCAIAAAEIMAEBEYCYEA4AQGG45AEOB2CBXAQBBENQEFIBAEAAADIUACAQAAABCMAQDAAABIABAGIAQGAAACAFAKHQCAUAAAKTAEYXAKSQKBYAQEAAAAQFAEAYAAAADMECSAEBAAAAUDIBAEAAABUSACAQAAAISIAQCAAAA2OQBAIAAACA4AIBAAAAYKIAQGAAAAEEA4BQCAIAAAVRKAEBAAAAUCABAEAAABAEACAQAAAOBEAQJAAAEUSQMDQOAEBAWJJWCWFQJB4LQCAICFOSQCDYRAEBDGNY3B4AQE6KJAUCQCAQNGMER2AICATBQEAYDAEBFL2IBAIHQCAQCBUCQOAICHUXQAKIBHRSSESZGAINJCAMCAECBAFQIBBLCWWA3SIASG2ASUAAQPDQCCBHAEWQ6KQBGICZUBZYBSYAKHQITQACIDYKA4YBYGANDUE3QIIMA6QBUJYKGQJBKBY5DYUQOGYATURCUCYIAEQBACYSDYDTIJTPACDZGAI4B2PACHAFAUOQLEYFCUDQ6DYSDUBIUEUDAGEATCIHAUBBCBABAEAQAAABAGAIVAIDBADJKBANB3FABGENB6PAJDQSVETI4AFJESHRHAESRIMYUCMLAGGA3HYGFAMZEABHB6"><b>내 지도</b><span>저장한 모든 드라이브의 도로, 지난 횟수에 따라 5단계 굵기</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="regions" href="s/#AEBQBRQTAAAJPVQDAAHAAAIXRU2GAAAAAAAAAAAAAAABBQAAJABQAAAAAAAAAAGAJGAQAAA"><b>가 본 곳</b><span>전국 230개 시·군·구 중 방문한 곳</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
         </ul>
-        <p class="privacy"><svg aria-hidden="true"><use href="#i-lock" /></svg><span>드라이브 기록은 QR 주소의 <code>#</code> 뒤에만 담겨요. 브라우저는 이 부분을 서버로 보내지 않아서, 카드는 휴대폰 안에서만 그려져요. 이 사이트는 분석 도구나 외부 요청을 쓰지 않아요.</span></p>
+        <p class="privacy"><svg aria-hidden="true"><use href="#i-lock" /></svg><span>카드 데이터는 QR 주소의 <code>#</code> 뒤에만 들어간다. 브라우저는 <code>#</code> 뒤 내용을 서버로 보내지 않으므로, 카드는 휴대폰 브라우저 안에서 그려지고 기록은 어떤 서버에도 저장되지 않는다. 이 사이트는 분석 도구를 쓰지 않고 다른 사이트에 요청하지 않는다.</span></p>
       </section>
     </main>
 
