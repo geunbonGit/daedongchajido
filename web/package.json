@@ -1,0 +1,11 @@
+{
+  "name": "odomap-web",
+  "private": true,
+  "description": "Odomap static site: landing page + serverless QR share-card viewer (GitHub Pages). No dependencies.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "build:data": "node tools/build-data.mjs",
+    "build:samples": "node tools/make-samples.mjs"
+  }
+}

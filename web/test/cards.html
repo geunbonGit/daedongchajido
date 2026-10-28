@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Card gallery</title>
+    <script src="../assets/tokens.js"></script>
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../assets/base.css" />
+    <style>
+      body { padding: 24px; background: #e9e9e6; }
+      h1 { font-size: 20px; margin: 0 0 4px; }
+      p { margin: 0 0 20px; color: #666; font-size: 13px; }
+      .row { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-bottom: 28px; }
+      figure { margin: 0; }
+      figure img { width: 270px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12); }
+      figure.story img { width: 216px; }
+      figcaption { font-size: 12px; color: #555; margin-top: 8px; max-width: 270px; }
+      .meta { font-size: 12px; color: #444; margin: 0 0 8px; }
+    </style>
+  </head>
+  <body>
+    <h1>Odomap share cards — test gallery</h1>
+    <p>Every sample vector rendered by assets/card.js (1080 px files, shown small). <code>?save=1</code> posts the PNGs to a local dev server, <code>?only=sample-drive</code> filters, <code>?looks=paper,night</code> picks looks, <code>?vectors=/__core/vectors.json</code> reads another vector file (e.g. the Kotlin one, if the dev server maps it), <code>?all</code> shows every vector.</p>
+    <div id="out"></div>
+    <script type="module">
+      import { decodeShare } from '../assets/share-decode.js';
+      import { renderCard, canvasToBlob, cardFontText, loadCardFonts } from '../assets/card.js';
+      import { cardAltText } from '../assets/format.js';
+
+      const params = new URLSearchParams(location.search);
+      const save = params.has('save');
+      const only = params.get('only');
+      const looks = (params.get('looks') || 'paper,white,hanji,night').split(',');
+      const ratios = (params.get('ratios') || 'square,story').split(',');
+      const out = document.getElementById('out');
+      const t0 = performance.now();
+      const [vectors, outline] = await Promise.all([
+        fetch(params.get('vectors') || 'vectors.local.json').then(r => r.json()),
+        fetch('../data/outline.json').then(r => r.json()),
+        loadCardFonts(),
+      ]);
+      const timings = [];
+      for (const v of vectors.vectors) {
+        if (v.error || (only && !only.split(',').includes(v.name))) continue;
+        if (!only && !params.has('all') && !v.name.startsWith('sample-') && v.name !== 'kind1-unicode-title-48-bytes') continue;
+        const share = decodeShare(v.payload);
+        await loadCardFonts(cardFontText(share), 5000);
+        const row = document.createElement('div');
+        row.className = 'row';
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.textContent = `${v.name} · ${v.bytes} B · ${cardAltText(share, share.title)}`;
+        out.append(meta, row);
+        for (const look of looks)
+          for (const ratio of ratios) {
+            const s = performance.now();
+            const { canvas } = renderCard(share, { ratio, look, outline });
+            const drawn = performance.now() - s;
+            const blob = await canvasToBlob(canvas);
+            timings.push({ name: `${v.name}/${ratio}/${look}`, drawMs: Math.round(drawn), pngMs: Math.round(performance.now() - s - drawn), kb: Math.round(blob.size / 1024) });
+            const fig = document.createElement('figure');
+            fig.className = ratio;
+            const img = new Image();
+            img.src = URL.createObjectURL(blob);
+            const cap = document.createElement('figcaption');
+            cap.textContent = `${ratio} · ${look} · ${Math.round(blob.size / 1024)} KB · ${drawn.toFixed(0)} ms`;
+            fig.append(img, cap);
+            row.append(fig);
+            if (save) await fetch(`/__save/${v.name}-${ratio}-${look}.png`, { method: 'POST', body: blob });
+          }
+      }
+      window.__done = { ms: Math.round(performance.now() - t0), timings };
+      document.title = 'done';
+      if (save) await fetch('/__save/timings.json', { method: 'POST', body: JSON.stringify(window.__done, null, 1) });
+    </script>
+  </body>
+</html>
