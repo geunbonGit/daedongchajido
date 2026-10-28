@@ -117,7 +117,7 @@ def main(form, md_path, out):
     d = docx.Document(form)
     md = open(md_path, encoding="utf-8").read()
     for p in d.paragraphs:
-        t = p.text
+        t = p.text.strip()
         if t.startswith("참가 단위"):
             check(p, "개인")
         elif t.startswith("참가 부문"):
@@ -139,6 +139,8 @@ def main(form, md_path, out):
                     r.text = r.text.replace("_", "")
         elif t.startswith("참가 인원"):
             fill_line(p, "1")
+        elif t.startswith("팀명(") and "팀 참가 시" in t:
+            fill_line(p, "해당 없음 (개인 참가)")
     members = d.tables[0]
     members.rows[1].cells[0].text = NAME
     members.rows[1].cells[4].text = ROLE
