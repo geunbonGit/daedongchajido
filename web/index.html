@@ -7,23 +7,23 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="theme-color" content="#EFEFED" />
-    <title>대동차지도 (大東車地圖) · Odomap — 달린 길이 지도가 된다</title>
+    <title>대동차지도 (大東車地圖) — 달린 길이 지도가 된다</title>
     <meta name="description" content="대동차지도(大東車地圖) — 자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖). Pleos Connect 차량용 드라이브 기록 앱. 시동만 걸면 달린 길이 나만의 지도가 되고, 처음 달린 길과 처음 가 본 시·군·구를 세어 줘요." />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="대동차지도 · Odomap" />
+    <meta property="og:site_name" content="대동차지도" />
     <meta property="og:title" content="대동차지도 (大東車地圖) — 달린 길이 지도가 된다" />
     <meta property="og:description" content="자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖). 시동만 걸면 달린 길이 나만의 지도가 돼요. 처음 달린 길과 처음 가 본 시·군·구를 세어 주는 Pleos Connect 앱." />
-    <meta property="og:url" content="https://geunbongit.github.io/odomap/" />
-    <meta property="og:image" content="https://geunbongit.github.io/odomap/assets/og.png" />
+    <meta property="og:url" content="https://geunbongit.github.io/daedongchajido/" />
+    <meta property="og:image" content="https://geunbongit.github.io/daedongchajido/assets/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="preload" href="fonts/odomap-sans-800-a.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/odomap-sans-800-b.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/odomap-sans-500-a.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="fonts/odomap-sans-500-b.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/chajido-sans-800-a.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/chajido-sans-800-b.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/chajido-sans-500-a.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/chajido-sans-500-b.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="modulepreload" href="assets/landing.js" />
     <link rel="modulepreload" href="assets/card.js" />
     <link rel="modulepreload" href="assets/share-decode.js" />
@@ -38,7 +38,6 @@
   </head>
   <body>
     <svg width="0" height="0" class="visually-hidden" aria-hidden="true">
-      <symbol id="i-mark" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 0a12 12 0 1 0 0 24a12 12 0 1 0 0-24Zm0 3.6a8.4 8.4 0 1 1 0 16.8a8.4 8.4 0 1 1 0-16.8Z" /><circle cx="12" cy="12" r="4.32" /></symbol>
       <symbol id="i-down" viewBox="0 0 24 24"><path d="M11 3.5L11 14A1 1 0 0 0 13 14L13 3.5A1 1 0 0 0 11 3.5ZM12.707 13.293L9.172 9.757A1 1 0 0 0 7.757 11.172L11.293 14.707A1 1 0 0 0 12.707 13.293ZM12.707 14.707L16.243 11.172A1 1 0 0 0 14.828 9.757L11.293 13.293A1 1 0 0 0 12.707 14.707ZM4 12V17A4 4 0 0 0 8 21H16A4 4 0 0 0 20 17V12A1 1 0 0 0 18 12V17A2 2 0 0 1 16 19H8A2 2 0 0 1 6 17V12A1 1 0 0 0 4 12Z" /></symbol>
       <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.3 6.3 2.6 12l5.7 5.7 1.3-1.3L5.2 12l4.4-4.4ZM15.7 6.3l-1.3 1.3 4.4 4.4-4.4 4.4 1.3 1.3 5.7-5.7Z" /></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path d="M8.2 4.6c-.9-.55-2.05.1-2.05 1.15v12.5c0 1.05 1.15 1.7 2.05 1.15l10.15-6.25a1.35 1.35 0 0 0 0-2.3Z" /></symbol>
@@ -47,25 +46,25 @@
     </svg>
 
     <header class="bar">
-      <a class="lockup" href="./" aria-label="대동차지도 처음으로"><svg class="mark" aria-hidden="true"><use href="#i-mark" /></svg><span>대동차지도</span></a>
-      <a class="bar-link" href="https://github.com/geunbonGit/odomap" rel="noopener">GitHub</a>
+      <a class="lockup" href="./" aria-label="대동차지도 처음으로"><span>대동차지도</span></a>
+      <a class="bar-link" href="https://github.com/geunbonGit/daedongchajido" rel="noopener">GitHub</a>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-text">
           <p class="eyebrow">Pleos Connect 앱 · 현대자동차 공모전 출품작</p>
-          <h1 id="hero-title" class="name">대동차지도 <span class="name-en">Odomap</span></h1>
+          <h1 id="hero-title" class="name">대동차지도</h1>
           <p class="hanja" lang="zh-Hant">大東車地圖</p>
           <p class="meaning">자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖)</p>
           <p class="tagline">달린 길이 지도가 된다</p>
           <p class="lead">시동만 걸면 내가 달린 길이 나만의 지도가 돼요. 처음 달린 길과 처음 가 본 시·군·구를 세어 주는 드라이브 기록 앱이에요.</p>
           <div class="cta">
-            <a class="pill pill-ink" href="https://github.com/geunbonGit/odomap/releases/latest" rel="noopener"><svg aria-hidden="true"><use href="#i-down" /></svg>APK 받기</a>
-            <a class="pill pill-soft" href="https://github.com/geunbonGit/odomap" rel="noopener"><svg aria-hidden="true"><use href="#i-code" /></svg>소스 코드</a>
+            <a class="pill pill-ink" href="https://github.com/geunbonGit/daedongchajido/releases/latest" rel="noopener"><svg aria-hidden="true"><use href="#i-down" /></svg>APK 받기</a>
+            <a class="pill pill-soft" href="https://github.com/geunbonGit/daedongchajido" rel="noopener"><svg aria-hidden="true"><use href="#i-code" /></svg>소스 코드</a>
           </div>
         </div>
-        <a class="hero-card" id="hero-card" data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPQAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMBACAQCAMBAIBACAMBQGAIAAIAIEAEAAEBQGAIBAEBAKCACAIBAEBAEAUCQCAACAAAQCAQBBMFQCAIBAMAAEAABAEBACAQBAIAQCAIBAMAQEAABAACADAIAAIAQEBAAAEAAIAABAAAQIBQBAEBQEAIBAEBAEBQBAIBAEAYBAEAAGBABAMAQKAICAMBACAICAUBAGBAFAAAQBAAAACAIBAEAACAADAQBQMAIEAECACAQBAAAQEAIAAEBACAABAAAQAAYAAMBACAYBAUAQCAIBAAAQCAABAEAQABIAAMAACAABAE" aria-label="샘플 드라이브 카드 열기">
+        <a class="hero-card" id="hero-card" data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPMAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMDQKBAEAIBQGAYBAABABAQAQAAQGAYBAEAQEBIIAIBAEAQEAQCQKAIAAIAACAICAEFQWAIBAEBQAAQAAEAQEAICAEBACAIBAEBQCAQAAEAAIAMBAABACAQEAAAQABAAAEAACBAGAEAQGAQBAEAQEAQGAEBAEAQDAEAQAAYEAEBQCBIBAIBQEAIBAICQEAYEAUAACAEAAAAIBAEAQAAIAAMCAGBQBAQAQIBIEAEAACAQBAAAQAAIAAMAAGAQBAMAQKAIBAEAQAAIBAAAQCAIAAUAAGAABAAAQC" aria-label="샘플 드라이브 카드 열기">
           <span class="hero-card-frame" id="hero-card-frame"></span>
           <span class="hero-card-cap">차에서 QR로 넘어오는 공유 카드 · 눌러서 열기</span>
         </a>
@@ -123,9 +122,9 @@
         <h2 id="samples-title">샘플 카드 보기</h2>
         <p class="sub">차가 QR에 담아 보내는 것과 같은 형식의 샘플이에요. 비율과 바탕을 바꾸고 저장·공유해 볼 수 있어요.</p>
         <ul class="rows">
-          <li><a data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPQAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMBACAQCAMBAIBACAMBQGAIAAIAIEAEAAEBQGAIBAEBAKCACAIBAEBAEAUCQCAACAAAQCAQBBMFQCAIBAMAAEAABAEBACAQBAIAQCAIBAMAQEAABAACADAIAAIAQEBAAAEAAIAABAAAQIBQBAEBQEAIBAEBAEBQBAIBAEAYBAEAAGBABAMAQKAICAMBACAICAUBAGBAFAAAQBAAAACAIBAEAACAADAQBQMAIEAECACAQBAAAQEAIAAEBACAABAAAQAAYAAMBACAYBAUAQCAIBAAAQCAABAEAQABIAAMAACAABAE"><b>드라이브 카드</b><span>주말 드라이브 · 가평 — 처음 달린 길</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
-          <li><a data-sample="trip" href="s/#AEAQDRQTYIB4OX72VMA47IYBAAG6VMEV5OTISIHMS6WO3FUJAEKQQZD3P2A4PTWQZAFQ2AQVMR5X5AOHZ3IMQAYFAUBNVSQEQS7Q6AABAIGAAAAABEAQCBYGAMIAIEAFBYAAUCYKAMFAOCAHAQBQGAAAAMDAKEACAYAAABIQAEHAEEQEBAAAECPBAEAAAGIOA4CAOARBCICBIAIGB4EC6LAVCI5TYAAOAQBA4BQIAAAAEAJSAIDAQFAABIBQYDYOAMEAOGALDYBQUABAAEDAODQBCICRMAY6AEHA6MABCAGRUAYOAEJAMBACBAATMAQSBQ5AGOACIACUMAA6AIKACHQIFAECMAAOAMQAMLACBIGBQDREAIHAGRAGDAAAQCJMAEEAECQECIAC4CA6AAEAKHQRGQAQ4AAOBARAEDADCIGSMAAKAQIAADADEIBAIFQIAYEAECABCIDBEAA6AQGAICQMCIDAMJQYAQEAIGQSDAAAYBJSA4LAKEAABQBAIBACBYBBIDAIAIGAGBACAICAECABBABQUBIIAMCACDQABQEBEEAMBAGAIBQEBYGBAAAIAAHAIGAGCAABECQYAIDAQBQGBIGAQCAMAYKAEGAGBY6FEBQ6BAMAAFQDCYAAMAQIAYEBQHAQDAHAUCAOAQCA4BAEBACAMAQGAMHACGQAAYBAMBQIBYCAYCQKCABAYAQICQJAEBQONAGBUCA6BIIAMEQKEQBBICRMCAMAECAAAYAQQCIOAMFAELAABQCQ4EZAAMHACEACCAABAAQIAQDAMBBEAEIAOBQBBABAMCAGAIJACFQQBQAQQAAEAYEAYDAGAYDAIBQEBYCAMFAQAQDAACQABQCQQFYIBEAAGAIDCAKREAQEAYAAQBQCAYAAUAQSBABAIBABAE"><b>여행 카드</b><span>강릉 여행 — 긴 길도 QR 하나에</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
-          <li><a data-sample="myMap" href="s/#AEBAFRQTAAAJPVQD3G2QEDQAAELQGNIEAPRMUBEMX4HQYEQHCQBQEAAABUEAIBAAAAMUMA2AEELAGAYAAARRAAQIAMBQYCA6BUDQ6AYCH2NQCARNAICAEFILBABTIHZAAMBAAAADAQBAEAAAAEDAGAQAAABQYAQDAAAAOHQGDQAQEAAABYKAEAQAAADAYAQCAIBBEDQBAIAAABQGAIBAAAAACIAQEAAABMFAEAQAAARQAAICAAAA2AQCAIAAAEIMAEBEYCYEA4AQGG45AEOB2CBXAQBBENQEFIBAEAAADIUACAQAAABCMAQDAAABIABAGIAQGAAACAFAKHQCAUAAAKTAEYXAKSQKBYAQEAAAAQFAEAYAAAADMECSAEBAAAAUDIBAEAAABUSACAQAAAISIAQCAAAA2OQBAIAAACA4AIBAAAAYKIAQGAAAAEEA4BQCAIAAAVRKAEBAAAAUCABAEAAABAEACAQAAAOBEAQJAAAEUSQMDQOAEBAWJJWCWFQJB4LQCAICFOSQCDYRAEBDGNY3B4AQE6KJAUCQCAQNGMER2AICATBQEAYDAEBFL2IBAIHQCAQCBUCQOAICHUXQAKIBHRSSESZGAINJCAMCAECBAFQIBBLCWWA3SIASG2ASUAAQPDQCCBHAEWQ6KQBGICZUBZYBSYAKHQITQACIDYKA4YBYGANDUE3QIIMA6QBUJYKGQJBKBY5DYUQOGYATURCUCYIAEQBACYSDYDTIJTPACDZGAI4B2PACHAFAUOQLEYFCUDQ6DYSDUBIUEUDAGEATCIHAUBBCBABAEAQAAABAGAI4AIDBADJKBANB2DQCJISTYDI2D46ASHBFKJGRYAKSJEPCOAJFCQZRIEYWAMMBWPQMCIIQYCALA4EAKFQDEALSIACOD4"><b>내 지도</b><span>지금까지 달린 길 전부, 자주 간 길은 굵게</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPMAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMDQKBAEAIBQGAYBAABABAQAQAAQGAYBAEAQEBIIAIBAEAQEAQCQKAIAAIAACAICAEFQWAIBAEBQAAQAAEAQEAICAEBACAIBAEBQCAQAAEAAIAMBAABACAQEAAAQABAAAEAACBAGAEAQGAQBAEAQEAQGAEBAEAQDAEAQAAYEAEBQCBIBAIBQEAIBAICQEAYEAUAACAEAAAAIBAEAQAAIAAMCAGBQBAQAQIBIEAEAACAQBAAAQAAIAAMAAGAQBAMAQKAIBAEAQAAIBAAAQCAIAAUAAGAABAAAQC"><b>드라이브 카드</b><span>주말 드라이브 · 가평 — 처음 달린 길</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="trip" href="s/#AEAQDRQTYIB4OX72VMA47IYBAAG6VMEV5OTISIHMS6WO3FUJAEKQQZD3P2A4PTWQZAFQ2AQVMR5X5AOHZ3IMQAYFAUBNVSQEQS7Q6AABAIGAAAAABEAQCBYGAMIAIEAFBYAAUCYKAMFAOCAHAQBQGAAAAMDAKEACAYAAABIQAEHAEEQEBAAAECO6AEAAAGIOA4CAOARBCICBIAIGB4EC6LAVCI5TYAAOAQBA4BQIAIATECQ2AAFAGDAPBYBQQBYYBMPAGCQAEAAQMBYOAEJAKFQDDYAQ4DZQAEIA2GQDBYAREBQEAIEACNQCCIGDUAZYAJAAKRQADYBBIAI6BAUAQJQABYBSABRMAIFAYGAOEQBA4A2EAYMAACAJFQAQQAQKAQJAALQIDYAAQBI6CE2ACDQABYECEAQMAMJA2JQABICBAAAMAMRAEBAWBADAQAQIAEJAMEQADYCAYBAKCIMCMGAEBACBUEQYAAGAKMQHCYCRAAAMAICAIAQOAIKAYCACBQBQIAQCAQBAQAIIAMFAKCADAQAQ4AAMBAJBADAIBQCAMBAOBQIAACAABYCBQBQQAAJAUGACAYEAMBQKBQEAQDAGCQBBQBQOHRJAMHQIDAABMAYWAADAECAGBAMBYEAYBYFAQDQEAQHAIBAIAQDAEBQDBYARUAAGAIDAMCAOAQGAUCQQAIGAECAUCIBAMDTIBQNAQHQKCADBECREAIKAULAQDABAQAAGAEEASDQDBIBCYAAMAUHBGIADBYARAAQQAAIAECAEAYDAIJABCADQMAIIAIDAQBQCCIARMEAMAEEAABAGBAGAYBQGAYCAMBAOAQDBIEAEAYAAUAAMAUEBOCAJAABQCAYQCUJAEBAGAAEAMAQGAAFAEEQIAICAIAIB"><b>여행 카드</b><span>강릉 여행 — 긴 길도 QR 하나에</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="myMap" href="s/#AEBAFRQTAAAJPVQD3G2QEDQAAELQGNIEAPRMUBEMX4HQYEQHCQBQEAAABUEAIBAAAAMUMA2AEELAGAYAAARRAAQIAMBQYCA6BUDQ6AYCH2NQCARNAICAEFILBABTIHZAAMBAAAADAQBAEAAAAEDAGAQAAABQYAQDAAAAOHQGDQAQEAAABYKAEAQAAADAYAQCAIBBEDQBAIAAABQGAIBAAAAACIAQEAAABMFAEAQAAARQAAICAAAA2AQCAIAAAEIMAEBEYCYEA4AQGG45AEOB2CBXAQBBENQEFIBAEAAADIUACAQAAABCMAQDAAABIABAGIAQGAAACAFAKHQCAUAAAKTAEYXAKSQKBYAQEAAAAQFAEAYAAAADMECSAEBAAAAUDIBAEAAABUSACAQAAAISIAQCAAAA2OQBAIAAACA4AIBAAAAYKIAQGAAAAEEA4BQCAIAAAVRKAEBAAAAUCABAEAAABAEACAQAAAOBEAQJAAAEUSQMDQOAEBAWJJWCWFQJB4LQCAICFOSQCDYRAEBDGNY3B4AQE6KJAUCQCAQNGMER2AICATBQEAYDAEBFL2IBAIHQCAQCBUCQOAICHUXQAKIBHRSSESZGAINJCAMCAECBAFQIBBLCWWA3SIASG2ASUAAQPDQCCBHAEWQ6KQBGICZUBZYBSYAKHQITQACIDYKA4YBYGANDUE3QIIMA6QBUJYKGQJBKBY5DYUQOGYATURCUCYIAEQBACYSDYDTIJTPACDZGAI4B2PACHAFAUOQLEYFCUDQ6DYSDUBIUEUDAGEATCIHAUBBCBABAEAQAAABAGAIVAIDBADJKBANB3FABGENB6PAJDQSVETI4AFJESHRHAESRIMYUCMLAGGA3HYGFAMZEABHB6"><b>내 지도</b><span>지금까지 달린 길 전부, 자주 간 길은 굵게</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
           <li><a data-sample="regions" href="s/#AEBQBRQTAAAJPVQDAAHAAAIXRU2GAAAAAAAAAAAAAAABBQAAJABQAAAAAAAAAAGAJGAQAAA"><b>가 본 곳</b><span>전국 230곳 중 가 본 시·군·구</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
         </ul>
         <p class="privacy"><svg aria-hidden="true"><use href="#i-lock" /></svg><span>드라이브 기록은 QR 주소의 <code>#</code> 뒤에만 담겨요. 브라우저는 이 부분을 서버로 보내지 않아서, 카드는 휴대폰 안에서만 그려져요. 이 사이트는 분석 도구나 외부 요청을 쓰지 않아요.</span></p>
@@ -134,15 +133,15 @@
 
     <footer class="foot">
       <p class="foot-links">
-        <a href="https://github.com/geunbonGit/odomap" rel="noopener">GitHub</a>
-        <a href="https://github.com/geunbonGit/odomap/releases/latest" rel="noopener">APK (최신 릴리스)</a>
+        <a href="https://github.com/geunbonGit/daedongchajido" rel="noopener">GitHub</a>
+        <a href="https://github.com/geunbonGit/daedongchajido/releases/latest" rel="noopener">APK (최신 릴리스)</a>
         <a href="s/">공유 카드 뷰어</a>
       </p>
       <p>
         지역 경계: 본 데이터는 통계청 통계지리정보서비스(SGIS, <a href="https://sgis.kostat.go.kr" rel="noopener">sgis.kostat.go.kr</a>)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor,
-        <a href="https://github.com/vuski/admdongkor" rel="noopener">github.com/vuski/admdongkor</a>), <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="noopener">CC BY 4.0</a>으로 배포됩니다. 시·군·구 단위 병합·단순화: Odomap.
+        <a href="https://github.com/vuski/admdongkor" rel="noopener">github.com/vuski/admdongkor</a>), <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="noopener">CC BY 4.0</a>으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.
       </p>
-      <p>글꼴: Pretendard (SIL Open Font License 1.1, 웹용으로 나눠 ‘Odomap Sans’로 이름을 바꿈 — <a href="fonts/LICENSE.txt">라이선스</a>).</p>
+      <p>글꼴: Pretendard (SIL Open Font License 1.1, 웹용으로 나눠 ‘Chajido Sans’로 이름을 바꿈 — <a href="fonts/LICENSE.txt">라이선스</a>).</p>
     </footer>
   </body>
 </html>

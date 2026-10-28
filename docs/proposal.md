@@ -3,7 +3,7 @@
 > 이 파일은 접수양식(docs/form/contest-application-consent.docx) 02장 1~8번 칸에 옮겨 넣을 원고다.
 > 02장에는 성명·연락처·소속을 쓰지 않는다. 공유 링크·첨부에도 실명이 보이지 않게 한다.
 
-**앱명 / 프로젝트명:** 대동차지도 (大東車地圖) · Odomap — 달린 길이 지도가 된다
+**앱명 / 프로젝트명:** 대동차지도 (大東車地圖) — 달린 길이 지도가 된다
 
 ---
 
@@ -102,9 +102,9 @@
 
 ## 7. 참고자료 (선택 · 가산점)
 
-- GitHub 저장소(소스 + `apk/` 폴더 release APK): https://github.com/geunbonGit/odomap
-- 프로젝트 소개 페이지(시연 영상·화면·샘플 공유 카드): https://geunbongit.github.io/odomap/
-- 시연 영상: https://geunbongit.github.io/odomap/assets/demo.mp4
+- GitHub 저장소(소스 + `apk/` 폴더 release APK): https://github.com/geunbonGit/daedongchajido
+- 프로젝트 소개 페이지(시연 영상·화면·샘플 공유 카드): https://geunbongit.github.io/daedongchajido/
+- 시연 영상: https://geunbongit.github.io/daedongchajido/assets/demo.mp4
 
 ## 8. 숏폼 링크 (선택 · 가산점 없음)
 

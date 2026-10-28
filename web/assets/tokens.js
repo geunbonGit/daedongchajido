@@ -1,5 +1,5 @@
 /*
- * Odomap design tokens — the ONE place for colors, type, sizes and timings used by the web pages and the share card.
+ * 대동차지도 design tokens — the ONE place for colors, type, sizes and timings used by the web pages and the share card.
  * Values are the 발자취 values from docs/design-footprint-ref.md (§1 colors, §3 type, §7 share card) and docs/design.md §6.
  * To retune the look, change values here only: the card renderer reads `ODOMAP_TOKENS`, the pages read the CSS variables
  * that `applyLook()` derives from the same values.
@@ -23,9 +23,9 @@
     defaultLook: 'paper',
 
     font: {
-      // 'Odomap Sans' = Pretendard (SIL OFL 1.1, fonts/LICENSE.txt) split into unicode-range chunks by
+      // 'Chajido Sans' = Pretendard (SIL OFL 1.1, fonts/LICENSE.txt) split into unicode-range chunks by
       // tools/build-fonts.py (fonts/fonts.css). Weights 500 · 700 · 800; the card uses 500 + 700 only.
-      family: 'Odomap Sans',
+      family: 'Chajido Sans',
       fallback: "-apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif",
     },
 
@@ -65,8 +65,8 @@
         [16, 1.4, 1.1],
         [19, 2.2, 1.8],
       ],
-      // 발자취 lockup: mark diameter = brand size, gap 0.36×, word at 0.98×
-      brand: { word: '대동차지도', gapK: 0.36, wordK: 0.98, room: 14, markColor: 'ink', wordColor: 'textSoft' },
+      // wordmark only (no symbol): '대동차지도' Bold at brand × 0.98, ink box vertically centered on the stats line
+      brand: { word: '대동차지도', wordK: 0.98, room: 14, wordColor: 'textSoft' },
       // kind 3 (가 본 곳): every outline hairline, visited shapes filled (like 발자취 동네 badges). Visited shapes are
       // separated by paper-colored hairlines so each region stays countable inside a filled cluster.
       regions: { outline: 0.5, outlineAlpha: 0.18, visitedFillAlpha: 0.85, visitedEdge: 0.5, visitedEdgeColor: 'paper', visitedEdgeAlpha: 0.9 },

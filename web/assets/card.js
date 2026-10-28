@@ -3,7 +3,7 @@
 // preview, the PNG and the video frames are the same picture. All sizes and colors come from ODOMAP_TOKENS (tokens.js).
 //
 //   paper (+ 44-unit grid) → route lines (one ink, thicker for roads driven more often; one layer at 0.92 so overlaps never
-//   darken) or, for kind 3, region shapes → text: date · 한마디 · big number + unit · label · stats line · 대동차지도 lockup.
+//   darken) or, for kind 3, region shapes → text: date · 한마디 · big number + unit · label · stats line · 대동차지도 wordmark.
 import { KIND } from './share-decode.js';
 import { cardDateLabel, cardNumbers, cardTitleText } from './format.js';
 
@@ -307,37 +307,22 @@ function drawPaper(ctx, scene) {
   }
 }
 
-/** 대동차지도 lockup (mark + word), vertically centered on cy; returns its width. Mark = ink ring with a center dot. */
+/** 대동차지도 wordmark (word only, no symbol), vertically centered on cy; width = the word's ink width. */
 export function lockupWidth(ctx, h) {
   const b = tokens().card.brand;
-  return h + h * b.gapK + inkWidth(ctx, b.word, fontOf(tokens().card.weight.brand, h * b.wordK));
+  return inkWidth(ctx, b.word, fontOf(tokens().card.weight.brand, h * b.wordK));
 }
 
-export function drawMark(ctx, cx, cy, r, color) {
-  ctx.save();
-  ctx.fillStyle = color;
-  const ring = new Path2D();
-  ring.moveTo(cx + r, cy);
-  ring.arc(cx, cy, r, 0, Math.PI * 2);
-  ring.moveTo(cx + r * 0.7, cy);
-  ring.arc(cx, cy, r * 0.7, 0, Math.PI * 2, true);
-  ring.moveTo(cx + r * 0.36, cy);
-  ring.arc(cx, cy, r * 0.36, 0, Math.PI * 2);
-  ctx.fill(ring, 'nonzero');
-  ctx.restore();
-}
-
-function drawLockup(ctx, x, cy, h, markColor, wordColor) {
+function drawLockup(ctx, x, cy, h, wordColor) {
   const T = tokens();
   const b = T.card.brand;
-  drawMark(ctx, x + h / 2, cy, h / 2, markColor);
   const font = fontOf(T.card.weight.brand, h * b.wordK);
   ctx.font = font;
   const m = ctx.measureText(b.word);
-  // Hangul wordmark: center the word's own ink box on the mark
+  // Hangul wordmark: the word's own ink box is centered on cy and starts at x
   const baseline = cy + (m.actualBoundingBoxAscent - m.actualBoundingBoxDescent) / 2;
   ctx.fillStyle = wordColor;
-  ctx.fillText(b.word, x + h + h * b.gapK + m.actualBoundingBoxLeft, baseline);
+  ctx.fillText(b.word, x + m.actualBoundingBoxLeft, baseline);
 }
 
 /** 한마디 on one line: shrink to fit (down to titleMin), then ellipsis */
@@ -379,7 +364,7 @@ function drawText(ctx, scene) {
   drawLeft(ctx, numbers.unit, x0 + hero.width + t.type.unitGap, layout.heroBaseline, fontOf(t.weight.unit, t.type.unit), colors.textSoft);
   drawLeft(ctx, numbers.label, x0, layout.labelBaseline, fontOf(t.weight.label, t.type.label), colors.textSoft);
 
-  // bottom right lockup; the stats line shrinks (to statsMin) instead of touching it
+  // bottom right wordmark; the stats line shrinks (to statsMin) instead of touching it
   const brandH = t.type.brand;
   const brandW = lockupWidth(ctx, brandH);
   const room = W - x0 * 2 - brandW - t.brand.room;
@@ -388,7 +373,7 @@ function drawText(ctx, scene) {
   if (statsWidth > room && statsWidth > 0) statsFont = fontOf(t.weight.stats, Math.max(t.type.statsMin, (t.type.stats * room) / statsWidth));
   const stats = drawLeft(ctx, numbers.stats, x0, layout.statsBaseline, statsFont, colors.text);
   const brandCy = stats.ascent + stats.descent > 0 ? layout.statsBaseline + (stats.descent - stats.ascent) / 2 : layout.statsBaseline - t.type.stats * 0.36;
-  drawLockup(ctx, W - x0 - brandW, brandCy, brandH, colors[t.brand.markColor] ?? colors.ink, colors[t.brand.wordColor] ?? colors.textSoft);
+  drawLockup(ctx, W - x0 - brandW, brandCy, brandH, colors[t.brand.wordColor] ?? colors.textSoft);
 
   // kind 3: tiny source credit in the box's bottom-right corner (open sea on the national map)
   if (scene.credit) {

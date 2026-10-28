@@ -37,11 +37,11 @@ SRC_URL = "https://raw.githubusercontent.com/vuski/admdongkor/master/{v}/HangJeo
 
 ATTRIBUTION_KO = ("본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 "
                   "개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), "
-                  "CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: Odomap.")
+                  "CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.")
 ATTRIBUTION_EN = ("Derived from administrative-dong boundaries released by Statistics Korea SGIS "
                   "(https://sgis.kostat.go.kr) under KOGL Type 1, modified by vuski/admdongkor "
                   "(https://github.com/vuski/admdongkor), distributed under CC BY 4.0. "
-                  "Aggregated to si/gun/gu and simplified by Odomap.")
+                  "Aggregated to si/gun/gu and simplified by Daedong Chajido.")
 
 # 광역시·특별시(자치구가 기초자치단체)인 시도: 여기의 '구'는 병합하지 않는다.
 METRO_SIDO = {"11", "26", "27", "28", "29", "30", "31", "12"}  # 12 = 전남광주통합특별시(2026-07)

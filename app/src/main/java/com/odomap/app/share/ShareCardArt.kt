@@ -74,7 +74,6 @@ object CardTokens {
     const val SMOOTH_PASSES = 3
     val WIDTH_STOPS = arrayOf(doubleArrayOf(8.0, 1.9, 0.35), doubleArrayOf(12.0, 1.7, 0.6), doubleArrayOf(16.0, 1.4, 1.1), doubleArrayOf(19.0, 2.2, 1.8))
     const val BRAND_WORD = "대동차지도"
-    const val BRAND_GAP_K = 0.36f
     const val BRAND_WORD_K = 0.98f
     const val BRAND_ROOM = 14f
     const val REGION_OUTLINE = 0.5f
@@ -162,7 +161,7 @@ fun cardNumbers(card: ShareCard): CardNumbers =
 
 // ───────────────────────── fonts & outline
 
-/** Pretendard Medium (500) · Bold (700) — the viewer's 'Odomap Sans' weights */
+/** Pretendard Medium (500) · Bold (700) — the viewer's 'Chajido Sans' weights */
 class CardFonts(val medium: Typeface, val bold: Typeface) {
     companion object {
         @Volatile private var cached: CardFonts? = null
@@ -470,27 +469,14 @@ object ShareCardArt {
         return m
     }
 
-    fun lockupWidth(fonts: CardFonts, h: Float): Float = h + h * CardTokens.BRAND_GAP_K + ink(fonts.bold, h * CardTokens.BRAND_WORD_K, CardTokens.BRAND_WORD).width
+    /** 대동차지도 wordmark (word only, no symbol): its ink width at brand size [h] */
+    fun lockupWidth(fonts: CardFonts, h: Float): Float = ink(fonts.bold, h * CardTokens.BRAND_WORD_K, CardTokens.BRAND_WORD).width
 
-    /** 대동차지도 mark: ink ring with a center dot */
-    fun markPath(cx: Float, cy: Float, r: Float): Path =
-        Path().apply {
-            fillType = Path.FillType.WINDING
-            addCircle(cx, cy, r, Path.Direction.CW)
-            addCircle(cx, cy, r * 0.7f, Path.Direction.CCW)
-            addCircle(cx, cy, r * 0.36f, Path.Direction.CW)
-        }
-
-    /** lockup (mark + word) with its left edge at x, vertically centered on cy (design units) */
-    fun drawLockup(c: Canvas, k: Float, fonts: CardFonts, x: Float, cy: Float, h: Float, markColor: Int, wordColor: Int) {
-        c.save()
-        c.scale(k, k)
-        c.drawPath(markPath(x + h / 2, cy, h / 2), Paint(Paint.ANTI_ALIAS_FLAG).apply { color = markColor })
-        c.restore()
+    /** wordmark with its ink starting at x, the word's ink box vertically centered on cy (design units; card.js drawLockup) */
+    fun drawLockup(c: Canvas, k: Float, fonts: CardFonts, x: Float, cy: Float, h: Float, wordColor: Int) {
         val size = h * CardTokens.BRAND_WORD_K
-        // Hangul wordmark: center the word's own ink box on the mark (card.js drawLockup)
         val word = ink(fonts.bold, size, CardTokens.BRAND_WORD)
-        drawLeft(c, k, CardTokens.BRAND_WORD, x + h + h * CardTokens.BRAND_GAP_K, cy + (word.ascent - word.descent) / 2, fonts.bold, size, wordColor)
+        drawLeft(c, k, CardTokens.BRAND_WORD, x, cy + (word.ascent - word.descent) / 2, fonts.bold, size, wordColor)
     }
 
     private fun opaque(rgb: Int, alpha: Float = 1f): Int = ((alpha * 255).roundToInt().coerceIn(0, 255) shl 24) or (rgb and 0xFFFFFF)
@@ -604,7 +590,7 @@ object ShareCardArt {
         drawLeft(c, k, n.unit, x0 + hero.width + t.UNIT_GAP, L.heroBaseline, fonts.bold, t.UNIT, soft)
         drawLeft(c, k, n.label, x0, L.labelBaseline, fonts.medium, t.LABEL, soft)
 
-        // bottom right lockup; the stats line shrinks (to statsMin) instead of touching it
+        // bottom right wordmark; the stats line shrinks (to statsMin) instead of touching it
         val brandH = t.BRAND
         val brandW = lockupWidth(fonts, brandH)
         val room = W - x0 * 2 - brandW - t.BRAND_ROOM
@@ -613,7 +599,7 @@ object ShareCardArt {
         if (statsWidth > room && statsWidth > 0) statsSize = max(t.STATS_MIN, t.STATS * room / statsWidth)
         val stats = drawLeft(c, k, n.stats, x0, L.statsBaseline, fonts.medium, statsSize, text)
         val brandCy = if (stats.ascent + stats.descent > 0) L.statsBaseline + (stats.descent - stats.ascent) / 2 else L.statsBaseline - t.STATS * 0.36f
-        drawLockup(c, k, fonts, W - x0 - brandW, brandCy, brandH, opaque(look.ink), soft)
+        drawLockup(c, k, fonts, W - x0 - brandW, brandCy, brandH, soft)
 
         // kind 3: source credit in the box's bottom-right corner
         if (scene.regions != null) {

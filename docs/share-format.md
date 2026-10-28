@@ -4,7 +4,7 @@
 브라우저는 `#` 뒤를 서버로 보내지 않으므로, 정적 페이지(GitHub Pages)는 뷰어 파일만 내려주고 데이터는 보지 못한다.
 
 ```
-https://geunbongit.github.io/odomap/s/#<PAYLOAD>
+https://geunbongit.github.io/daedongchajido/s/#<PAYLOAD>
 ```
 
 - `<PAYLOAD>` = 이진 데이터(아래)를 **RFC 4648 base32 대문자, 패딩(`=`) 없이** 쓴 것.

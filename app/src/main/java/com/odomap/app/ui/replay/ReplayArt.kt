@@ -243,7 +243,7 @@ object ReplayArt {
         fade(c, k)
         c.restore()
 
-        // text: date line · counting number · '처음 달린 길' line · lockup
+        // text: date line · counting number · '처음 달린 길' line · wordmark
         val cx = B.W / 2 * k
         val label = scene.labelAt(t)
         val dateSize = fitSize(fonts.medium, B.DATE_SIZE, scene.steps.map { it.label } + label, B.W - 48f)
@@ -254,7 +254,7 @@ object ReplayArt {
         c.drawText(small, cx, B.LABEL_Y * k, textPaint(fonts.medium, B.LABEL_SIZE * k, argb(colors.textSoft)).apply { textAlign = Paint.Align.CENTER })
         val fontsCard = com.odomap.app.share.CardFonts(fonts.medium, fonts.bold)
         val lw = ShareCardArt.lockupWidth(fontsCard, B.BRAND_H)
-        ShareCardArt.drawLockup(c, k, fontsCard, B.W - B.BRAND_RIGHT - lw, B.BRAND_CY, B.BRAND_H, argb(colors.text, 0.92f), argb(colors.text, 0.92f))
+        ShareCardArt.drawLockup(c, k, fontsCard, B.W - B.BRAND_RIGHT - lw, B.BRAND_CY, B.BRAND_H, argb(colors.text, 0.92f))
         c.restore()
     }
 

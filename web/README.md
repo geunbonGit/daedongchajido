@@ -1,6 +1,6 @@
-# web/ — 대동차지도(Odomap) 사이트 (GitHub Pages)
+# web/ — 대동차지도 사이트 (GitHub Pages)
 
-`.github/workflows/pages.yml`이 이 폴더를 그대로 https://geunbongit.github.io/odomap/ 에 올립니다. 빌드 단계도, 의존성도, 외부 요청도 없습니다.
+`.github/workflows/pages.yml`이 이 폴더를 그대로 https://geunbongit.github.io/daedongchajido/ 에 올립니다. 빌드 단계도, 의존성도, 외부 요청도 없습니다.
 
 | 경로 | 무엇 |
 |---|---|
@@ -9,13 +9,13 @@
 | `assets/share-decode.js` | QR payload 디코더 ([docs/share-format.md](../docs/share-format.md) v1) |
 | `assets/card.js` · `assets/format.js` · `assets/tokens.js` | 카드 그리기 (발자취 `drawExploreCard` 이식), 숫자·날짜 표기, 디자인 값 |
 | `data/regions.json` · `data/outline.json` | 시·군·구 230곳 목록과 표시용 윤곽 (`tools/build-data.mjs`) |
-| `fonts/` | 'Odomap Sans' = Pretendard를 unicode-range 조각으로 나눈 것 (`tools/build-fonts.py`) |
+| `fonts/` | 'Chajido Sans' = Pretendard를 unicode-range 조각으로 나눈 것 (`tools/build-fonts.py`) |
 | `test/` | Node 테스트, 카드 갤러리 `test/cards.html` |
 
 ## 어떻게 동작하나
 
 ```
-https://geunbongit.github.io/odomap/s/#AEAQ…   ← '#' 뒤 = base32 이진 데이터 (날짜·거리·지역·선)
+https://geunbongit.github.io/daedongchajido/s/#AEAQ…   ← '#' 뒤 = base32 이진 데이터 (날짜·거리·지역·선)
 ```
 
 1. `s/viewer.js`가 `location.hash`를 디코드합니다 (`share-decode.js`). 모르는 version/kind/regionSet이면 "앱을 업데이트해 주세요", 잘린 주소면 "카드를 읽지 못했어요"를 보여 줍니다.
@@ -70,10 +70,10 @@ node --test web/test/                       # 저장소 루트에서 (또는 cd 
 
 **지역 경계 데이터** (`data/regions.json`, `data/outline.json`, 카드의 지역 지도) — CC BY 4.0:
 
-> 본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: Odomap.
+> 본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.
 
-> Derived from administrative-dong boundaries released by Statistics Korea SGIS (https://sgis.kostat.go.kr) under KOGL Type 1, modified by vuski/admdongkor (https://github.com/vuski/admdongkor), distributed under CC BY 4.0. Aggregated to si/gun/gu and simplified by Odomap.
+> Derived from administrative-dong boundaries released by Statistics Korea SGIS (https://sgis.kostat.go.kr) under KOGL Type 1, modified by vuski/admdongkor (https://github.com/vuski/admdongkor), distributed under CC BY 4.0. Aggregated to si/gun/gu and simplified by Daedong Chajido.
 
 같은 문구가 소개 페이지와 뷰어 아래에 있고, '가 본 곳' 카드 이미지에도 짧게(`지역 경계 © 통계청 SGIS · vuski/admdongkor CC BY 4.0`) 들어갑니다.
 
-**글꼴** — [Pretendard](https://github.com/orioncactus/pretendard) © Kil Hyung-jin, SIL Open Font License 1.1 (`fonts/LICENSE.txt`). OFL은 고친 글꼴에 예약 이름 "Pretendard"를 쓰지 못하게 하므로, 조각으로 나눈 글꼴의 이름은 'Odomap Sans'입니다(저작권·라이선스 표기는 글꼴 안에 그대로 둠).
+**글꼴** — [Pretendard](https://github.com/orioncactus/pretendard) © Kil Hyung-jin, SIL Open Font License 1.1 (`fonts/LICENSE.txt`). OFL은 고친 글꼴에 예약 이름 "Pretendard"를 쓰지 못하게 하므로, 조각으로 나눈 글꼴의 이름은 'Chajido Sans'입니다(저작권·라이선스 표기는 글꼴 안에 그대로 둠).

@@ -1,6 +1,6 @@
 # tools/regions — 시·군·구 경계 데이터
 
-Odomap의 "지역 정복"에 쓰는 오프라인 시·군·구 경계를 만듭니다. 앱 코드는 여기 없고 산출물(`out/`)만 앱 에셋으로 씁니다.
+대동차지도의 "지역 정복"에 쓰는 오프라인 시·군·구 경계를 만듭니다. 앱 코드는 여기 없고 산출물(`out/`)만 앱 에셋으로 씁니다.
 
 ```
 pip install --user "shapely>=2.1"          # GEOS 3.12+ (coverage_simplify)
@@ -20,11 +20,11 @@ python3 -I validate_regions.py              # 지점 테스트 + 시연 주행 �
 
 **출처 표시 문구(앱 정보 화면이나 오픈소스 고지, 제안서 각주에 넣을 것)** — `regions.json`의 `source.attribution` 값과 같습니다.
 
-> 본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: Odomap.
+> 본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.
 
-> Derived from administrative-dong boundaries released by Statistics Korea SGIS (https://sgis.kostat.go.kr) under KOGL Type 1, modified by vuski/admdongkor (https://github.com/vuski/admdongkor), distributed under CC BY 4.0. Aggregated to si/gun/gu and simplified by Odomap.
+> Derived from administrative-dong boundaries released by Statistics Korea SGIS (https://sgis.kostat.go.kr) under KOGL Type 1, modified by vuski/admdongkor (https://github.com/vuski/admdongkor), distributed under CC BY 4.0. Aggregated to si/gun/gu and simplified by Daedong Chajido.
 
-CC BY 4.0이므로 변경했다는 사실도 알려야 합니다. 위 문구의 "병합·단순화"가 그 표시입니다. 원자료 제공기관이 Odomap을 보증한다는 뜻으로 읽힐 표현은 쓰지 않습니다.
+CC BY 4.0이므로 변경했다는 사실도 알려야 합니다. 위 문구의 "병합·단순화"가 그 표시입니다. 원자료 제공기관이 대동차지도를 보증한다는 뜻으로 읽힐 표현은 쓰지 않습니다.
 
 다른 후보를 쓰지 않은 이유는 다음과 같습니다.
 - southkorea/southkorea-maps: 2018년 이후 갱신되지 않아 군위군 대구 편입(2023), 강원·전북 특별자치도, 2026년 개편이 빠져 있습니다.

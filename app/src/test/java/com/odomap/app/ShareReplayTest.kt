@@ -114,7 +114,14 @@ class ShareReplayTest {
         val hints = EnumMap<DecodeHintType, Any>(DecodeHintType::class.java)
         hints[DecodeHintType.POSSIBLE_FORMATS] = EnumSet.of(BarcodeFormat.QR_CODE)
         hints[DecodeHintType.TRY_HARDER] = true
-        return MultiFormatReader().decode(BinaryBitmap(HybridBinarizer(RGBLuminanceSource(bmp.width, bmp.height, px))), hints).text
+        val image = BinaryBitmap(HybridBinarizer(RGBLuminanceSource(bmp.width, bmp.height, px)))
+        return try {
+            MultiFormatReader().decode(image, hints).text
+        } catch (e: com.google.zxing.NotFoundException) {
+            // ZXing's finder-pattern search misses the odd pixel-perfect matrix; the bitmap IS the bare code, so say so
+            hints[DecodeHintType.PURE_BARCODE] = true
+            MultiFormatReader().decode(image, hints).text
+        }
     }
 
     private fun save(bmp: Bitmap, name: String) {

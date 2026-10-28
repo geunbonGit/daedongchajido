@@ -9,13 +9,13 @@
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#EFEFED" />
     <title>대동차지도 카드</title>
-    <meta name="description" content="차에서 QR로 넘어온 대동차지도(Odomap) 드라이브 카드 — 기록은 서버로 가지 않고 이 휴대폰에서만 그려져요." />
+    <meta name="description" content="차에서 QR로 넘어온 대동차지도 드라이브 카드 — 기록은 서버로 가지 않고 이 휴대폰에서만 그려져요." />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="대동차지도 · Odomap" />
+    <meta property="og:site_name" content="대동차지도" />
     <meta property="og:title" content="대동차지도 — 달린 길이 지도가 된다" />
     <meta property="og:description" content="차에서 QR로 넘어온 드라이브 카드. 기록은 서버로 가지 않아요." />
     <!-- generic preview (no numbers): link previews never see the card data, which lives only in the # fragment -->
-    <meta property="og:image" content="https://geunbongit.github.io/odomap/assets/og-card.png" />
+    <meta property="og:image" content="https://geunbongit.github.io/daedongchajido/assets/og-card.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
@@ -25,9 +25,9 @@
     <link rel="modulepreload" href="../assets/share-decode.js" />
     <link rel="modulepreload" href="../assets/card.js" />
     <link rel="modulepreload" href="../assets/format.js" />
-    <link rel="preload" href="../fonts/odomap-sans-500-a.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="../fonts/odomap-sans-700-a.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="../fonts/odomap-sans-700-b.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../fonts/chajido-sans-500-a.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../fonts/chajido-sans-700-a.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../fonts/chajido-sans-700-b.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="../fonts/fonts.css" />
     <link rel="stylesheet" href="../assets/base.css" />
     <link rel="stylesheet" href="viewer.css" />
@@ -37,7 +37,6 @@
   </head>
   <body class="is-loading">
     <svg width="0" height="0" class="visually-hidden" aria-hidden="true">
-      <symbol id="i-mark" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 0a12 12 0 1 0 0 24a12 12 0 1 0 0-24Zm0 3.6a8.4 8.4 0 1 1 0 16.8a8.4 8.4 0 1 1 0-16.8Z" /><circle cx="12" cy="12" r="4.32" /></symbol>
       <symbol id="i-save" viewBox="0 0 24 24"><path d="M11 3.5L11 14A1 1 0 0 0 13 14L13 3.5A1 1 0 0 0 11 3.5ZM12.707 13.293L9.172 9.757A1 1 0 0 0 7.757 11.172L11.293 14.707A1 1 0 0 0 12.707 13.293ZM12.707 14.707L16.243 11.172A1 1 0 0 0 14.828 9.757L11.293 13.293A1 1 0 0 0 12.707 14.707ZM4 12V17A4 4 0 0 0 8 21H16A4 4 0 0 0 20 17V12A1 1 0 0 0 18 12V17A2 2 0 0 1 16 19H8A2 2 0 0 1 6 17V12A1 1 0 0 0 4 12Z" /></symbol>
       <symbol id="i-story" viewBox="0 0 24 24"><path d="M12.997 1.648A10.4 10.4 0 0 1 16.313 2.536L15.566 4.174A8.6 8.6 0 0 0 12.824 3.44ZM18.039 3.533A10.4 10.4 0 0 1 20.467 5.961L19.001 7.006A8.6 8.6 0 0 0 16.994 4.999ZM21.464 7.687A10.4 10.4 0 0 1 22.352 11.003L20.56 11.176A8.6 8.6 0 0 0 19.826 8.434ZM22.352 12.997A10.4 10.4 0 0 1 21.464 16.313L19.826 15.566A8.6 8.6 0 0 0 20.56 12.824ZM20.467 18.039A10.4 10.4 0 0 1 18.039 20.467L16.994 19.001A8.6 8.6 0 0 0 19.001 16.994ZM16.313 21.464A10.4 10.4 0 0 1 12.997 22.352L12.824 20.56A8.6 8.6 0 0 0 15.566 19.826ZM11.003 22.352A10.4 10.4 0 0 1 7.687 21.464L8.434 19.826A8.6 8.6 0 0 0 11.176 20.56ZM5.961 20.467A10.4 10.4 0 0 1 3.533 18.039L4.999 16.994A8.6 8.6 0 0 0 7.006 19.001ZM2.536 16.313A10.4 10.4 0 0 1 1.648 12.997L3.44 12.824A8.6 8.6 0 0 0 4.174 15.566ZM1.648 11.003A10.4 10.4 0 0 1 2.536 7.687L4.174 8.434A8.6 8.6 0 0 0 3.44 11.176ZM3.533 5.961A10.4 10.4 0 0 1 5.961 3.533L7.006 4.999A8.6 8.6 0 0 0 4.999 7.006ZM7.687 2.536A10.4 10.4 0 0 1 11.003 1.648L11.176 3.44A8.6 8.6 0 0 0 8.434 4.174ZM11 8L11 16A1 1 0 0 0 13 16L13 8A1 1 0 0 0 11 8ZM8 13L16 13A1 1 0 0 0 16 11L8 11A1 1 0 0 0 8 13Z" /></symbol>
       <symbol id="i-share" viewBox="0 0 24 24"><path d="M6.676 12.822L18.076 6.222L17.124 4.578L5.724 11.178ZM5.724 12.822L17.124 19.422L18.076 17.778L6.676 11.178ZM3.1 12A3.1 3.1 0 1 0 9.3 12A3.1 3.1 0 1 0 3.1 12ZM14.5 5.4A3.1 3.1 0 1 0 20.7 5.4A3.1 3.1 0 1 0 14.5 5.4ZM14.5 18.6A3.1 3.1 0 1 0 20.7 18.6A3.1 3.1 0 1 0 14.5 18.6Z" /></symbol>
@@ -48,7 +47,7 @@
 
     <div class="app" id="app">
       <header class="top">
-        <a class="lockup" href="../" aria-label="대동차지도 소개 페이지"><svg class="mark" aria-hidden="true"><use href="#i-mark" /></svg><span>대동차지도</span></a>
+        <a class="lockup" href="../" aria-label="대동차지도 소개 페이지"><span>대동차지도</span></a>
         <div class="seg" id="mode" role="tablist" aria-label="사진 또는 영상" hidden>
           <button type="button" role="tab" data-value="photo" aria-selected="true">사진</button>
           <button type="button" role="tab" data-value="video" aria-selected="false">영상</button>
@@ -102,7 +101,7 @@
     </div>
 
     <section class="empty" id="empty" hidden>
-      <a class="lockup" href="../"><svg class="mark" aria-hidden="true"><use href="#i-mark" /></svg><span>대동차지도</span></a>
+      <a class="lockup" href="../"><span>대동차지도</span></a>
       <div class="empty-card">
         <h1 id="empty-title">차에서 QR을 찍어 열어 주세요</h1>
         <p id="empty-body">대동차지도 공유 화면의 QR을 휴대폰 카메라로 찍으면, 드라이브 카드가 이 페이지에 그려져요.</p>
@@ -121,8 +120,8 @@
       <p><a class="text-link" href="../">대동차지도 — 달린 길이 지도가 된다 · 소개 보기 →</a></p>
       <p class="credit">
         지역 경계: 본 데이터는 통계청 통계지리정보서비스(SGIS, <a href="https://sgis.kostat.go.kr" rel="noopener">sgis.kostat.go.kr</a>)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor,
-        <a href="https://github.com/vuski/admdongkor" rel="noopener">github.com/vuski/admdongkor</a>), <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="noopener">CC BY 4.0</a>으로 배포됩니다. 시·군·구 단위 병합·단순화: Odomap.
-        글꼴: Pretendard (SIL Open Font License 1.1, 웹용으로 나눠 ‘Odomap Sans’로 이름을 바꿈).
+        <a href="https://github.com/vuski/admdongkor" rel="noopener">github.com/vuski/admdongkor</a>), <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="noopener">CC BY 4.0</a>으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.
+        글꼴: Pretendard (SIL Open Font License 1.1, 웹용으로 나눠 ‘Chajido Sans’로 이름을 바꿈).
       </p>
     </footer>
 

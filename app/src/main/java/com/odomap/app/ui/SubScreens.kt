@@ -152,7 +152,7 @@ private fun regionAttribution(context: android.content.Context): String =
             o.getJSONObject("source").optString("attribution")
         }
     }.getOrNull()?.ifBlank { null }
-        ?: "시·군·구 경계: 통계청 SGIS 행정동 경계(공공누리 제1유형)를 vuski/admdongkor가 가공, CC BY 4.0. 시·군·구 단위 병합·단순화: Odomap."
+        ?: "시·군·구 경계: 통계청 SGIS 행정동 경계(공공누리 제1유형)를 vuski/admdongkor가 가공, CC BY 4.0. 시·군·구 단위 병합·단순화: 대동차지도."
 
 @Suppress("unused")
 private val keepSize = Modifier.size(1.dp)

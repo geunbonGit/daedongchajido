@@ -1,6 +1,5 @@
+<!-- notification small icon: 地 silhouette (Noto Sans CJK Bold outline, SIL OFL 1.1) -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="24dp" android:height="24dp" android:viewportWidth="24" android:viewportHeight="24">
-    <path android:fillColor="#FFFFFFFF"
-        android:pathData="M4,18c3,-6 6,-1 9,-7s5,-5 7,-6l0.9,1.8c-1.8,0.9 -3.6,1.2 -6.1,5.6c-3.4,6 -6.9,1.8 -9,6.4z" />
-    <path android:fillColor="#FFFFFFFF" android:pathData="M18,18m-2.5,0a2.5,2.5 0,1 1,5 0a2.5,2.5 0,1 1,-5 0" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M7.06 9.61H9.18V7.24H7.06V2.68H4.73V7.24H2.27V9.61H4.73V15.5C3.68 15.92 2.76 16.28 2 16.55L3.01 19.07C4.94 18.17 7.33 17.06 9.56 15.95L8.99 13.74C8.36 14.01 7.71 14.29 7.06 14.56ZM14.21 19.39C12.93 19.39 12.75 19.2 12.75 17.96V11.5L14.49 10.74V17.14H16.82V9.73L18.62 8.94C18.62 11.92 18.6 13.45 18.56 13.78C18.47 14.16 18.35 14.25 18.1 14.25C17.91 14.25 17.45 14.25 17.09 14.2C17.36 14.73 17.55 15.67 17.61 16.3C18.29 16.3 19.19 16.28 19.8 16.01C20.43 15.74 20.8 15.23 20.87 14.27C20.97 13.41 21.01 10.89 21.01 6.9L21.1 6.48L19.36 5.87L18.92 6.17L18.47 6.46L16.82 7.17V2.39H14.49V8.18L12.75 8.92V4.42H10.35V9.94L8.3 10.8L9.22 13.03L10.35 12.55V17.94C10.35 20.84 11.17 21.61 14 21.61H18.47C20.93 21.61 21.66 20.6 22 17.67C21.31 17.54 20.34 17.14 19.82 16.76C19.63 18.9 19.42 19.39 18.26 19.39Z" />
 </vector>

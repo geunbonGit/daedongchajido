@@ -1,17 +1,17 @@
-# 대동차지도 (大東車地圖) · Odomap — 달린 길이 지도가 된다
+# 대동차지도 (大東車地圖) — 달린 길이 지도가 된다
 
 > **자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖)**
-> 대동여지도(大東輿地圖)의 輿(수레)를 車로 바꾼 이름입니다. 영문·브랜드 이름은 **Odomap** — *Your odometer, drawn as a map.*
+> 대동여지도(大東輿地圖)의 輿(수레)를 車로 바꾼 이름입니다.
 
 **시동만 걸면 내가 달린 길이 저절로 나만의 지도가 되고, 처음 달린 길과 처음 가 본 시·군·구를 세어 주는 Pleos Connect 드라이브 기록 앱.**
-계기판 주행거리(Odometer)의 숫자를 지도(Map)로 바꿉니다.
+계기판에 쌓이기만 하던 주행거리를 한 장의 지도로 바꿉니다.
 
 | | |
 |---|---|
-| 소개 페이지 · QR 공유 카드 뷰어 | https://geunbongit.github.io/odomap/ |
+| 소개 페이지 · QR 공유 카드 뷰어 | https://geunbongit.github.io/daedongchajido/ |
 | 시연 영상 (1분 56초) | [`web/assets/demo.mp4`](web/assets/demo.mp4) · 소개 페이지에서 바로 재생 |
-| 숏폼 (세로 52초) | [`web/assets/shortform.mp4`](web/assets/shortform.mp4) |
-| Release APK | [`apk/편재식_Odomap_release.apk`](apk/) |
+| 숏폼 (세로 54초) | [`web/assets/shortform.mp4`](web/assets/shortform.mp4) |
+| Release APK | [`apk/편재식_대동차지도_release.apk`](apk/) |
 | 기획서 · 디자인 | [docs/proposal.md](docs/proposal.md) · [docs/design.md](docs/design.md) |
 
 ![대동차지도 첫 화면 — 지금까지 달린 내 지도](docs/screens/01-home-paper.png)
@@ -28,7 +28,7 @@
 | **시·군·구 정복** | 전국 230곳 시·군·구 경계를 앱에 내장해 처음 들어선 지역을 모읍니다. "가 본 곳 25/230" + 전국 지도. | 새 지역은 **음성으로만** 안내: "가평군, 처음 와 보는 곳이에요." |
 | **안 가 본 동네로** | 지금 위치에서 가까운 미방문 시·군·구 5곳을 고르고, 누르면 Pleos 내비가 바로 길 안내를 시작합니다. | NaviHelper SDK `requestRoute` |
 | **다시 보기** | 드라이브 하나 / 지역 하나 / 내 지도 전체가 날짜 순으로 다시 그려집니다. 새 지역에 들어서면 날짜 줄이 지역 이름으로 바뀝니다. | 정차 중에만 열림 |
-| **QR 공유** | 공유 카드(이번 드라이브 · 내 지도 · 가 본 곳)를 QR 하나에 담습니다. 휴대폰 카메라로 찍으면 [웹 뷰어](https://geunbongit.github.io/odomap/)가 카드를 그리고 인스타그램 스토리·카카오톡으로 바로 보냅니다. | **서버 없음** — 기록은 QR 주소의 `#` 뒤에만 담겨 휴대폰으로만 전해짐 |
+| **QR 공유** | 공유 카드(이번 드라이브 · 내 지도 · 가 본 곳)를 QR 하나에 담습니다. 휴대폰 카메라로 찍으면 [웹 뷰어](https://geunbongit.github.io/daedongchajido/)가 카드를 그리고 인스타그램 스토리·카카오톡으로 바로 보냅니다. | **서버 없음** — 기록은 QR 주소의 `#` 뒤에만 담겨 휴대폰으로만 전해짐 |
 | **밤 배색 · 꾸미기** | 차가 밤 모드면 지도·판이 '밤' 배색으로 바뀝니다. 배색 17종, 선 굵기, 실제 지도(OpenFreeMap) 겹치기. | `uiMode` night 연동, 종이 지도는 오프라인 동작 |
 
 **안전 원칙.** 주행 중에는 화면을 쓰지 않습니다. 앱은 `distractionOptimized` 앱으로 선언하고, 주행 중엔 큰 숫자 셋(이번 달린 길 · 이번 처음 달린 길 · 지금 지역)과 지도만 보여 줍니다. 기록·꾸미기·공유·다시 보기는 정차(P) 후에 열리고(`CarUxRestrictionsManager`), 새 지역·도착 안내는 소리로만 합니다.
@@ -62,10 +62,10 @@ Pleos Connect 에뮬레이터(2560×1440)의 앱 창(1682×1210)을 그대로 �
 ### 2. APK 설치와 실행
 
 ```sh
-adb install -r apk/편재식_Odomap_release.apk
+adb install -r apk/편재식_대동차지도_release.apk
 ```
 
-앱 목록에서 **대동차지도**(영어 로캘에서는 Odomap)를 엽니다(또는 `adb shell am start --user 10 -n com.odomap.app/.ui.MainActivity` — Pleos Connect의 운전자 사용자는 10번).
+앱 목록에서 **대동차지도**를 엽니다(또는 `adb shell am start --user 10 -n com.odomap.app/.ui.MainActivity` — Pleos Connect의 운전자 사용자는 10번).
 처음 열 때 위치·알림 권한을 허용합니다. 대화상자를 건너뛰었다면:
 
 ```sh
@@ -82,7 +82,7 @@ for p in android.permission.ACCESS_FINE_LOCATION android.permission.ACCESS_COARS
    재생 중에도 실제 주행과 똑같이 기록·저장·음성 안내가 일어납니다.
 3. **시연 중 주행 화면 제한 풀기** — 켜 두면(기본) 재생 중에도 모든 화면을 볼 수 있고, 끄면 실제 차처럼 주행 중 제한 화면(큰 숫자 셋 + 지도)이 나옵니다.
 4. 재생이 끝나면 도착 요약 → **다시 보기**, 판 아래 **기록 · 가 본 곳(전국 지도)**, 위쪽 **공유(QR)** 를 눌러 봅니다.
-   QR은 휴대폰 카메라로 찍으면 https://geunbongit.github.io/odomap/s/#… 에서 카드가 그려집니다.
+   QR은 휴대폰 카메라로 찍으면 https://geunbongit.github.io/daedongchajido/s/#… 에서 카드가 그려집니다.
 5. **안 가 본 동네로** — 현재 위치 기준 추천이라, 에뮬레이터 위치를 서울로 옮긴 뒤 누르면 자연스럽습니다.
    ```sh
    adb emu geo fix 126.9246 37.5563     # 경도 위도 — 홍대입구 근처
@@ -117,7 +117,7 @@ Release 서명은 저장소 밖 `~/.odomap/keystore.properties`(`storeFile`, `st
 
 ## APK 위치
 
-`apk/편재식_Odomap_release.apk` — release 빌드(R8 난독화·축소 + 리소스 줄이기, APK Signature Scheme v2 서명, 21.3 MB, arm64-v8a · x86_64).
+`apk/편재식_대동차지도_release.apk` — release 빌드(R8 난독화·축소 + 리소스 줄이기, APK Signature Scheme v2 서명, 21.3 MB, arm64-v8a · x86_64).
 
 ## 사용한 Pleos SDK · AAOS API
 
@@ -213,8 +213,8 @@ All defaults are the phone app's values, so the defaults reproduce the original 
 ## 출처와 라이선스
 
 - **지역 경계 데이터** (`app/src/main/assets/regions`, `web/data`) — CC BY 4.0:
-  > 본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: Odomap.
-- **글꼴** — [Pretendard](https://github.com/orioncactus/pretendard) © Kil Hyung-jin, SIL Open Font License 1.1 (`app/src/main/assets/licenses/Pretendard-OFL.txt`, `web/fonts/LICENSE.txt`; 웹용 조각 글꼴은 OFL 예약 이름 규칙에 따라 'Odomap Sans').
+  > 본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), CC BY 4.0으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.
+- **글꼴** — [Pretendard](https://github.com/orioncactus/pretendard) © Kil Hyung-jin, SIL Open Font License 1.1 (`app/src/main/assets/licenses/Pretendard-OFL.txt`, `web/fonts/LICENSE.txt`; 웹용 조각 글꼴은 OFL 예약 이름 규칙에 따라 'Chajido Sans').
 - **지도** — [MapLibre Native](https://github.com/maplibre/maplibre-native) (BSD 2-Clause). 선택형 실제 지도 타일: [OpenFreeMap](https://openfreemap.org) · © OpenMapTiles · © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (ODbL).
 - **시연 주행 경로** — [OSRM](https://project-osrm.org) 공개 데모 서버로 OpenStreetMap 도로(© OpenStreetMap contributors, ODbL)를 따라 만든 가상 GPS 기록(`tools/routes`).
 - **QR 코드** — [Nayuki QR Code generator](https://www.nayuki.io/page/qr-code-generator-library) (`io.nayuki:qrcodegen`, MIT).
@@ -225,11 +225,11 @@ All defaults are the phone app's values, so the defaults reproduce the original 
 
 ## English summary
 
-**대동차지도 (大東車地圖) · Odomap** — *Your odometer, drawn as a map.* The Korean name swaps the 輿 (carriage) of the 1861 Daedong Yeojido map for 車 (car): "a map drawn with a car over the land of Korea".
-Odomap is a Pleos Connect (Android Automotive) app for the Hyundai Motor Group in-car app contest. It records every drive automatically
+**Daedong Chajido (大東車地圖, 대동차지도)** — *the roads you drive become your map.* The name swaps the 輿 (carriage) of the 1861 Daedong Yeojido map for 車 (car): "a map drawn with a car over the land of Korea".
+It is a Pleos Connect (Android Automotive) app for the Hyundai Motor Group in-car app contest. It records every drive automatically
 (gear D → P via the Pleos Vehicle SDK / AAOS `GEAR_SELECTION`, positions from the Pleos FusedLocation SDK), merges the roads you drive into one
 paper-style map (frequent roads drawn thicker), counts first-time roads and the 230 si/gun/gu districts you have visited (announced by voice only
 while driving), routes you to the nearest unvisited district through the Pleos NaviHelper SDK, replays your map, and shares cards to a phone
 through a serverless QR code (the record lives only in the URL fragment). The core engine is a bit-exact Kotlin port of a production walking-path
 engine (79 golden fixtures, 619,226 numbers identical), tuned for cars with `CarProfile`. Everything stays on the device.
-Install `apk/편재식_Odomap_release.apk` on the Pleos Connect emulator (API 34, v2.1.0) and long-press the sheet header '오늘' (or Settings › 시연 패널) to replay the 14 bundled demo drives.
+Install `apk/편재식_대동차지도_release.apk` on the Pleos Connect emulator (API 34, v2.1.0) and long-press the sheet header '오늘' (or Settings › 시연 패널) to replay the 14 bundled demo drives.

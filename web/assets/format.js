@@ -1,4 +1,4 @@
-// Card / page text — same rules as 발자취 (design-footprint-ref §3 표기, exploreCardModel.cardNumbers), Odomap wording (design.md §6).
+// Card / page text — same rules as 발자취 (design-footprint-ref §3 표기, exploreCardModel.cardNumbers), 대동차지도 wording (design.md §6).
 // Pure module (no DOM), shared by the viewer, the landing page and the tests.
 import { KIND } from './share-decode.js';
 
@@ -90,15 +90,15 @@ export function cardNumbers(share) {
 export function cardAltText(share, title) {
   const n = cardNumbers(share);
   const head = title ? `${title} — ` : '';
-  if (share.kind === KIND.REGIONS) return `${head}${longDateLabel(share.date)} 기준, 전국 시·군·구 ${share.regionCount}곳 중 ${n.hero}곳을 가 본 Odomap 지도`;
-  if (share.kind === KIND.MY_MAP) return `${head}${longDateLabel(share.date)} 기준, 내 지도 ${n.hero}km — 지금까지 달린 길을 그린 Odomap 지도`;
+  if (share.kind === KIND.REGIONS) return `${head}${longDateLabel(share.date)} 기준, 전국 시·군·구 ${share.regionCount}곳 중 ${n.hero}곳을 가 본 대동차지도`;
+  if (share.kind === KIND.MY_MAP) return `${head}${longDateLabel(share.date)} 기준, 내 지도 ${n.hero}km — 지금까지 달린 길을 그린 대동차지도`;
   const first = share.pioneeredM >= 10 ? `, 그중 처음 달린 길 ${formatDistanceKm(share.pioneeredM)}km` : '';
   return `${head}${longDateLabel(share.date)} ${clockLabel(share.startMin)}에 출발해 ${minutesText(share.durationS)} 동안 ${formatDistanceKm(share.distanceM)}km를 달린 드라이브${first}`;
 }
 
-/** File name stem: odomap-20261031-drive */
+/** File name stem: daedongchajido-20261031-drive */
 export function fileStem(share) {
   const d = share.date;
   const kind = share.kind === KIND.REGIONS ? 'regions' : share.kind === KIND.MY_MAP ? 'mymap' : 'drive';
-  return `odomap-${d.year}${String(d.month).padStart(2, '0')}${String(d.day).padStart(2, '0')}-${kind}`;
+  return `daedongchajido-${d.year}${String(d.month).padStart(2, '0')}${String(d.day).padStart(2, '0')}-${kind}`;
 }

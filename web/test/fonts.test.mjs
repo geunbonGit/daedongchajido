@@ -46,7 +46,7 @@ test('every @font-face file exists, per weight a · b · c* · x', () => {
 });
 
 test('card words and digits live in chunk a (weights 500 and 700)', () => {
-  const words = '0123456789+.km/·Odomap 대동차지도 처음 달린 길 내 지도 가 본 시·군·구 곳 드라이브 번 첫 방문 시간 분 미만 일월화수목금토…';
+  const words = '0123456789+.km/·대동차지도 처음 달린 길 내 지도 가 본 시·군·구 곳 드라이브 번 첫 방문 시간 분 미만 일월화수목금토…';
   for (const w of [500, 700]) {
     const a = faces().find(f => f.weight === w && f.chunk === 'a');
     for (const ch of new Set(words)) if (ch !== ' ') assert.ok(covers(a, ch.codePointAt(0)), `${w} a: ${ch}`);

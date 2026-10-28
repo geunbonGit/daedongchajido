@@ -1,7 +1,7 @@
 # 발자취 디자인 값 (원본 코드에서 뽑음)
 
 출처: `/Users/dmyeon/clientApp` (읽기 전용) — `src/services/explore/exploreLook.ts`, `src/screens/explore/explorePalette.ts`, `src/services/explore/exploreLineStyles.ts`, `src/components/run/map/{NativeRunMap.tsx,paperGrid.ts,realMapStyle.ts}`, `src/components/explore/*`, `growth/growthDraw.ts`, `card/drawExploreCard.ts`, `src/components/motion/*`.
-단위 pt = 발자취(휴대폰) 기준. **Odomap은 이 pt 값을 그대로 쓰고 화면 밀도 × 1.75 로 그린다**(design.md 1절). 줌은 "구글 줌"(= MapLibre 줌 + 1)과 MapLibre 줌을 구분해 적었다.
+단위 pt = 발자취(휴대폰) 기준. **대동차지도는 이 pt 값을 그대로 쓰고 화면 밀도 × 1.75 로 그린다**(design.md 1절). 줌은 "구글 줌"(= MapLibre 줌 + 1)과 MapLibre 줌을 구분해 적었다.
 
 **코드가 문서·옛 시안보다 맞다.** 옛 시안(10-07~08)에 있는 것 중 지금은 없는 것: 숫자 굵기 700 일괄, 판 머리 줄 '오늘 · 내 발자취 29.87km ›', 도구 묶음 안 꾸미기·▶, 파란 '+km', 새 길 파란 선, '새로 걸은 길'(지금 '처음 걸은 길').
 
@@ -108,7 +108,7 @@ OpenFreeMap(`https://tiles.openfreemap.org/planet`) positron 계열을 다시 �
 | 출처 | 9/500 |
 
 숫자: 바뀔 때 자리마다 바꿈(AnimatedNumber 300ms out-cubic, 자리 간 28ms), 카운트업 금지(다시 보기만 예외). 숫자와 단위는 아래 끝 정렬 + 단위 marginBottom(Pretendard BASELINE_K 0.3555).
-표기: 거리 100km 아래 소수 둘째(버림), 위 한 자리 · 시간 '3분' / '1시간 5분' · 날짜 '10월 7일 (수)' · 이름 '오후 3:03 산책'(Odomap: '오후 3:03 드라이브').
+표기: 거리 100km 아래 소수 둘째(버림), 위 한 자리 · 시간 '3분' / '1시간 5분' · 날짜 '10월 7일 (수)' · 이름 '오후 3:03 산책'(대동차지도: '오후 3:03 드라이브').
 
 ## 4. 부품
 
@@ -164,7 +164,7 @@ OpenFreeMap(`https://tiles.openfreemap.org/planet`) positron 계열을 다시 �
 - 차례: 날짜(Medium 13 textSoft '2026.10.7 수') · 한마디(Bold 17, 1줄) · 길 상자 · 큰 숫자 Bold 40 '+0.18' + 'km' Bold 18 textSoft(+6) · 이름 Medium 13 textSoft '처음 걸은 길' · 한 줄 Medium 13 text '0.28km · 3분 · 412걸음' · 로고 오른쪽 아래.
 - 계산값(한마디 없음): 정사각 길 상자 24,52.4 312×194.4 · 기준선 큰 숫자 293.6 / 이름 313 / 한 줄 335. 스토리 28,106.4 304×358.4 · 521.6 / 541 / 563.
 - 바탕: 종이(모눈 44/0.5) · 흰색 · 투명 · 투명 흰 글자.
-- 선: 굵기 2, 진하기 0.92, 자주 지난 길 더 굵게. 출발·도착 가림(200m) — 발자취는 기본 꺼짐(Odomap은 차라서 기본 켬, 300m).
+- 선: 굵기 2, 진하기 0.92, 자주 지난 길 더 굵게. 출발·도착 가림(200m) — 발자취는 기본 꺼짐(대동차지도는 차라서 기본 켬, 300m).
 - 영상: 300ms 빈 카드 → 2600ms 그림 → 앞머리 360ms 흐려짐 → 1.5초 머묾(약 4.8초).
 - 미리보기 화면: 카드 그림자 아래 10, 시그마 20, 0.12 · 비율 바꿈 340ms · 보내기 단추 원 52 + 이름 12/500, 칸 94: 저장(textPrimary) · 스토리(인스타 그라데이션) · 공유(surfaceStrong).
 

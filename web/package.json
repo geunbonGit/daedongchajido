@@ -1,7 +1,7 @@
 {
   "name": "odomap-web",
   "private": true,
-  "description": "Odomap static site: landing page + serverless QR share-card viewer (GitHub Pages). No dependencies.",
+  "description": "대동차지도 (Daedong Chajido) static site: landing page + serverless QR share-card viewer (GitHub Pages). No dependencies.",
   "type": "module",
   "scripts": {
     "test": "node --test test/*.test.mjs",

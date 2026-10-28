@@ -1,6 +1,6 @@
-/* Shared base for the Odomap pages. Colors come only from the CSS variables written by tokens.js (applyLook). */
+/* Shared base for the 대동차지도 pages. Colors come only from the CSS variables written by tokens.js (applyLook). */
 
-/* Fonts: fonts/fonts.css ('Odomap Sans' = Pretendard, SIL OFL 1.1, in unicode-range chunks — tools/build-fonts.py). */
+/* Fonts: fonts/fonts.css ('Chajido Sans' = Pretendard, SIL OFL 1.1, in unicode-range chunks — tools/build-fonts.py). */
 
 *,
 *::before,
@@ -78,21 +78,14 @@ a {
   border: 0;
 }
 
-/* Odomap lockup: ink ring mark + word */
+/* 대동차지도 wordmark: the word only, no symbol */
 .lockup {
   display: inline-flex;
   align-items: center;
-  gap: 0.36em;
   font-weight: 700;
   letter-spacing: -0.01em;
   text-decoration: none;
   color: var(--text);
-}
-.lockup .mark {
-  width: 1em;
-  height: 1em;
-  flex: none;
-  color: var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {

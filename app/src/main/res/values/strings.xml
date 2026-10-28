@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Odomap</string>
+    <!-- 대동차지도(大東車地圖) — 자동차(車)로 대한민국(大東) 땅(地) 위에 그리는 지도(圖). 이름은 하나, 모든 로캘 같음. -->
+    <string name="app_name">대동차지도</string>
     <string name="tagline">달린 길이 지도가 된다</string>
 
     <!-- home -->

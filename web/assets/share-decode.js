@@ -1,6 +1,6 @@
 // QR share payload decoder — docs/share-format.md (v1). Pure module (no DOM): the viewer and the Node tests use this same file.
 //
-//   https://geunbongit.github.io/odomap/s/#<PAYLOAD>
+//   https://geunbongit.github.io/daedongchajido/s/#<PAYLOAD>
 //   PAYLOAD = RFC 4648 base32 (A–Z 2–7), upper case, no '=' padding, of the binary layout below.
 //
 //   u8 version(=1) · u8 kind(1 drive, 2 my map, 3 regions) · u8 flags(bit0 ends hidden, bit1 frequent places hidden)

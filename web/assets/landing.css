@@ -53,19 +53,12 @@ main,
   font-weight: 800;
   letter-spacing: -0.035em;
 }
-/* name block: 대동차지도 (small Odomap) · 大東車地圖 · meaning · tagline */
+/* name block: 대동차지도 · 大東車地圖 · meaning · tagline */
 .hero .name {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   column-gap: 12px;
-}
-.name-en {
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--text-soft);
 }
 .hanja {
   margin: 4px 0 0;
@@ -418,9 +411,6 @@ main,
   .hero h1 {
     font-size: 56px;
     line-height: 64px;
-  }
-  .name-en {
-    font-size: 20px;
   }
   .hanja {
     font-size: 19px;

@@ -3,7 +3,7 @@ package com.odomap.core.share
 import com.odomap.core.geo.GeoPoint
 
 // QR share format v1 — docs/share-format.md. A card goes car → phone inside the URL fragment of a QR code (no server):
-//   https://geunbongit.github.io/odomap/s/#<PAYLOAD>, PAYLOAD = RFC 4648 base32 (upper case, no '=') of the binary card.
+//   https://geunbongit.github.io/daedongchajido/s/#<PAYLOAD>, PAYLOAD = RFC 4648 base32 (upper case, no '=') of the binary card.
 // Binary: unsigned LEB128 varints (uv), zigzag + varint for signed (sv), str = uv byte length + UTF-8.
 //   u8 version · u8 kind · u8 flags · uv dateDays · uv startMin · uv durationS · uv distance10 · uv pioneered10 · uv driveCount · str title
 //   · u8 regionSet · uv visitedTotal · kind 1: uv n + n × u8 new regions, uv m + m × u8 passed regions · kind 3: 29-byte visited bitmap
@@ -12,7 +12,7 @@ import com.odomap.core.geo.GeoPoint
 //     point from (0, 0), a later line's first point from the previous line's last point).
 // Readers ignore bytes after the known fields; an unknown version / kind / regionSet means "update the app".
 
-const val SHARE_URL_PREFIX = "https://geunbongit.github.io/odomap/s/#"
+const val SHARE_URL_PREFIX = "https://geunbongit.github.io/daedongchajido/s/#"
 const val SHARE_VERSION = 1
 const val SHARE_KIND_DRIVE = 1
 const val SHARE_KIND_ATLAS = 2

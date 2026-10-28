@@ -116,7 +116,7 @@ export function quantize(deg, quantExp) {
 }
 
 // ── QR budget (spec: version ≤ 20, EC level M; URL prefix in byte mode + payload in alphanumeric mode) ──────────
-export const SHARE_URL_PREFIX = 'https://geunbongit.github.io/odomap/s/#';
+export const SHARE_URL_PREFIX = 'https://geunbongit.github.io/daedongchajido/s/#';
 /** Data bits of QR version 20-M (669 data codewords) */
 const QR20M_DATA_BITS = 669 * 8;
 /** Largest payload (bytes) that fits a version-20-M QR together with the URL prefix */

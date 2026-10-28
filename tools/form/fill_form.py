@@ -14,7 +14,7 @@ import sys
 import docx
 
 NAME = "편재식"
-APP = "대동차지도 (大東車地圖) · Odomap"
+APP = "대동차지도 (大東車地圖)"
 ROLE = "기획·개발·디자인"
 
 

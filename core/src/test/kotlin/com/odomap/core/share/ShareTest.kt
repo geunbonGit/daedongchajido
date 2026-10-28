@@ -125,11 +125,11 @@ class ShareTest {
                 n += if (n < 200) 1 else 7
             }
         }
-        // the share URL prefix: version 20 holds 909 base32 characters = 568 payload bytes
+        // the share URL prefix: version 20 holds 898 base32 characters = 561 payload bytes
         val prefix = SHARE_URL_PREFIX.toByteArray().size
-        assertEquals(39, prefix)
-        assertEquals(20, ShareEncoder.qrVersion(prefix, ShareEncoder.base32Length(568)))
-        assertEquals(-1, ShareEncoder.qrVersion(prefix, ShareEncoder.base32Length(569)))
+        assertEquals(47, prefix)
+        assertEquals(20, ShareEncoder.qrVersion(prefix, ShareEncoder.base32Length(561)))
+        assertEquals(-1, ShareEncoder.qrVersion(prefix, ShareEncoder.base32Length(562)))
     }
 
     // ── privacy rules
