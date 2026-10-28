@@ -14,7 +14,7 @@ import sys
 import docx
 
 NAME = "편재식"
-APP = "대동차지도 (大東車地圖)"
+APP = "대동차지도"
 ROLE = "기획·개발·디자인"
 
 
@@ -84,20 +84,33 @@ def table_lines(rows):
 
 
 def clean(s):
-    s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)
     s = re.sub(r"`([^`]*)`", r"\1", s)
+    if s.startswith("### "):
+        return "**" + s[4:] + "**"
     s = re.sub(r"^- ", "• ", s)
     return s
+
+
+def add_runs(p, text):
+    """'**굵게**' 표시를 굵은 글자로 바꿔 넣는다."""
+    for i, part in enumerate(re.split(r"\*\*", text)):
+        if part:
+            p.add_run(part).bold = (i % 2 == 1)
 
 
 def put(cell, lines):
     paras = cell.paragraphs
     base = paras[0]
-    base.text = lines[0] if lines else ""
+    style = base.style
     for extra in paras[1:]:
         extra._element.getparent().remove(extra._element)
-    for line in lines[1:]:
-        cell.add_paragraph(line, base.style)
+    for r in list(base.runs):
+        r._element.getparent().remove(r._element)
+    first = True
+    for line in lines or [""]:
+        p = base if first else cell.add_paragraph("", style)
+        first = False
+        add_runs(p, line)
 
 
 def main(form, md_path, out):
