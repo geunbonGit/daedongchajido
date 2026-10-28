@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko" data-auto-look>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <!-- Everything is local: no analytics, no trackers, no third-party requests. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#EFEFED" />
+    <title>대동차지도 — 차가 달린 도로를 자동으로 기록해 지도에 그리는 Pleos Connect 앱</title>
+    <meta name="description" content="대동차지도는 차가 달린 경로를 자동으로 기록해 한 장의 지도에 그리고, 처음 달린 도로의 길이와 처음 들어간 시·군·구(전국 230곳 기준)를 세는 Pleos Connect 앱이다. 기어 D에서 기록을 시작하고 P에서 저장한다." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="대동차지도" />
+    <meta property="og:title" content="대동차지도 — 달린 도로를 자동으로 기록해 지도에 그리는 Pleos Connect 앱" />
+    <meta property="og:description" content="기어 D에서 1초 간격으로 위치 기록을 시작하고 P에서 경로를 저장한다. 드라이브마다 처음 달린 도로의 길이를 세고, 전국 230개 시·군·구 중 방문한 곳을 센다." />
+    <meta property="og:url" content="https://geunbongit.github.io/daedongchajido/" />
+    <meta property="og:image" content="https://geunbongit.github.io/daedongchajido/assets/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preload" href="fonts/chajido-sans-800-a.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/chajido-sans-800-b.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/chajido-sans-500-a.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="fonts/chajido-sans-500-b.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="modulepreload" href="assets/landing.js" />
+    <link rel="modulepreload" href="assets/card.js" />
+    <link rel="modulepreload" href="assets/share-decode.js" />
+    <link rel="modulepreload" href="assets/format.js" />
+    <link rel="modulepreload" href="assets/samples.js" />
+    <link rel="stylesheet" href="fonts/fonts.css" />
+    <link rel="stylesheet" href="assets/base.css" />
+    <link rel="stylesheet" href="assets/landing.css" />
+    <!-- sync after the preloads (so they start first): writes the look's CSS variables before first paint -->
+    <script src="assets/tokens.js"></script>
+    <script type="module" src="assets/landing.js"></script>
+  </head>
+  <body>
+    <svg width="0" height="0" class="visually-hidden" aria-hidden="true">
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M11 3.5L11 14A1 1 0 0 0 13 14L13 3.5A1 1 0 0 0 11 3.5ZM12.707 13.293L9.172 9.757A1 1 0 0 0 7.757 11.172L11.293 14.707A1 1 0 0 0 12.707 13.293ZM12.707 14.707L16.243 11.172A1 1 0 0 0 14.828 9.757L11.293 13.293A1 1 0 0 0 12.707 14.707ZM4 12V17A4 4 0 0 0 8 21H16A4 4 0 0 0 20 17V12A1 1 0 0 0 18 12V17A2 2 0 0 1 16 19H8A2 2 0 0 1 6 17V12A1 1 0 0 0 4 12Z" /></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.3 6.3 2.6 12l5.7 5.7 1.3-1.3L5.2 12l4.4-4.4ZM15.7 6.3l-1.3 1.3 4.4 4.4-4.4 4.4 1.3 1.3 5.7-5.7Z" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8.2 4.6c-.9-.55-2.05.1-2.05 1.15v12.5c0 1.05 1.15 1.7 2.05 1.15l10.15-6.25a1.35 1.35 0 0 0 0-2.3Z" /></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M7.5 9.5V7.6a4.5 4.5 0 0 1 9 0v1.9h.6A2.4 2.4 0 0 1 19.5 11.9v7.2a2.4 2.4 0 0 1-2.4 2.4H6.9a2.4 2.4 0 0 1-2.4-2.4v-7.2A2.4 2.4 0 0 1 6.9 9.5Zm1.8 0h5.4V7.6a2.7 2.7 0 0 0-5.4 0Z" /></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9.3 5.3 8 6.6l5.4 5.4L8 17.4l1.3 1.3 6.7-6.7Z" /></symbol>
+    </svg>
+
+    <header class="bar">
+      <a class="lockup" href="./" aria-label="대동차지도 처음으로"><span>대동차지도</span></a>
+      <a class="bar-link" href="https://github.com/geunbonGit/daedongchajido" rel="noopener">GitHub</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-text">
+          <p class="eyebrow">Pleos Connect 앱 · 차량용 앱 개발 공모전 출품작</p>
+          <h1 id="hero-title" class="name">대동차지도</h1>
+          <p class="hanja" lang="zh-Hant">大東車地圖</p>
+          <p class="meaning">대동여지도(김정호, 1861)의 ‘여(수레)’를 ‘차’로 바꾼 이름</p>
+          <p class="tagline">달린 도로를 자동으로 기록해 지도에 그린다</p>
+          <p class="lead">기어를 D에 두면 1초 간격으로 위치를 기록하고, P에 두면 경로와 주행 거리를 저장한다. 드라이브마다 처음 달린 도로의 길이를 세고, 전국 230개 시·군·구 중 방문한 곳을 센다.</p>
+          <div class="cta">
+            <a class="pill pill-ink" href="https://github.com/geunbonGit/daedongchajido/releases/latest" rel="noopener"><svg aria-hidden="true"><use href="#i-down" /></svg>APK 받기</a>
+            <a class="pill pill-soft" href="https://github.com/geunbonGit/daedongchajido" rel="noopener"><svg aria-hidden="true"><use href="#i-code" /></svg>소스 코드</a>
+          </div>
+        </div>
+        <a class="hero-card" id="hero-card" data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPMAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMDQKBAEAIBQGAYBAABABAQAQAAQGAYBAEAQEBIIAIBAEAQEAQCQKAIAAIAACAICAEFQWAIBAEBQAAQAAEAQEAICAEBACAIBAEBQCAQAAEAAIAMBAABACAQEAAAQABAAAEAACBAGAEAQGAQBAEAQEAQGAEBAEAQDAEAQAAYEAEBQCBIBAIBQEAIBAICQEAYEAUAACAEAAAAIBAEAQAAIAAMCAGBQBAQAQIBIEAEAACAQBAAAQAAIAAMAAGAQBAMAQKAIBAEAQAAIBAAAQCAIAAUAAGAABAAAQC" aria-label="샘플 드라이브 카드 열기">
+          <span class="hero-card-frame" id="hero-card-frame"></span>
+          <span class="hero-card-cap">샘플 드라이브 카드 · 누르면 공유 페이지에서 열린다</span>
+        </a>
+      </section>
+
+      <section class="block" aria-labelledby="demo-title">
+        <h2 id="demo-title">시연 영상</h2>
+        <p class="sub">1분 56초. 출발(기어 D)부터 주차(기어 P) 뒤 도착 요약, 휴대폰으로 QR을 찍어 카드를 여는 과정까지.</p>
+        <figure class="video" id="demo">
+          <video controls playsinline preload="metadata" poster="assets/demo-poster.jpg" aria-label="대동차지도 시연 영상">
+            <source src="assets/demo.mp4" type="video/mp4" />
+          </video>
+          <figcaption class="video-missing" hidden><svg aria-hidden="true"><use href="#i-play" /></svg>영상 파일을 불러오지 못했다</figcaption>
+        </figure>
+      </section>
+
+      <section class="block" aria-labelledby="screens-title">
+        <h2 id="screens-title">차 화면</h2>
+        <p class="sub">Pleos Connect 에뮬레이터의 앱 화면(1682×1210)이다. 주행 중에는 기록 목록·공유·다시 보기·배색 변경이 막히고, 안내는 음성으로만 한다.</p>
+        <ul class="screens">
+          <li><img src="assets/screens/01.png" data-fallback="assets/screens/placeholder.svg" alt="첫 화면 — 저장한 모든 드라이브의 경로를 그린 지도, 오늘 달린 거리, 오늘 처음 달린 거리, 가 본 곳 수" loading="lazy" width="1682" height="1210" /><span>내 지도</span></li>
+          <li><img src="assets/screens/02.png" data-fallback="assets/screens/placeholder.svg" alt="밤 배색 — 배색이 ‘자동’이고 차가 야간 모드일 때의 첫 화면" loading="lazy" width="1682" height="1210" /><span>밤 배색 (‘자동’ + 차 야간 모드)</span></li>
+          <li><img src="assets/screens/03.png" data-fallback="assets/screens/placeholder.svg" alt="가 본 곳 — 전국 230개 시·군·구 지도, 방문한 곳 수, 시·도별 방문 수" loading="lazy" width="1682" height="1210" /><span>가 본 곳 (230개 시·군·구)</span></li>
+          <li><img src="assets/screens/04.png" data-fallback="assets/screens/placeholder.svg" alt="공유 화면 — 카드 미리보기와 휴대폰 카메라로 찍는 QR 코드" loading="lazy" width="1682" height="1210" /><span>QR 공유</span></li>
+        </ul>
+      </section>
+
+      <section class="block" aria-labelledby="what-title">
+        <h2 id="what-title">기능</h2>
+        <ol class="features">
+          <li>
+            <b>기어 D에서 기록 시작, P에서 저장</b>
+            <p>기어가 D로 바뀌면 1초 간격으로 위치를 기록하고, P로 바뀌면 경로, 주행 거리, 처음 달린 거리, 지나간 시·군·구를 저장한다. 누르는 버튼은 없다. 기어 신호가 없는 차에서는 시속 5km 이상으로 10초 달리면 시작하고, 3분 멈춰 있으면 끝낸다.</p>
+          </li>
+          <li>
+            <b>모든 드라이브를 한 장의 지도에 그린다</b>
+            <p>같은 도로를 다시 달리면 기존 선에 합치고, 최대 약 30m 떨어진 왕복 차로는 한 줄로 그린다. 선 굵기는 지난 횟수에 따라 5단계(1회, 2회, 3~4회, 5~8회, 9회 이상)다. GPS가 끊긴 터널 구간은 3km·5분 이내면 직선으로 잇는다.</p>
+          </li>
+          <li>
+            <b>처음 달린 도로의 길이를 센다</b>
+            <p>“오늘 42.1km 중 처음 달린 길 12.4km.” 같은 출퇴근길을 다시 달리면 0km다. 시연 주행에서 다른 다리로 돌아간 날은 20.4km로 계산됐고, 실제 다른 구간의 길이도 20.4km다.</p>
+          </li>
+          <li>
+            <b>전국 230개 시·군·구 중 방문한 곳을 센다</b>
+            <p>한 지역 안에 30초 이상 있으면 방문으로 기록한다. 주행 중 처음 들어간 지역은 음성으로 알린다: “양양군, 처음 와 보는 곳이에요.”</p>
+          </li>
+          <li>
+            <b>200km 안의 미방문 지역 5곳으로 길 안내</b>
+            <p>아직 가지 않은 시·군·구 5곳을 직선거리 순으로 거리·방향과 함께 보여 준다. ‘길 안내’를 누르면 그 지역의 대표 지점을 목적지로 Pleos 내비게이션에 경로를 요청한다(NaviHelper SDK).</p>
+          </li>
+          <li>
+            <b>P에서 도착 요약, 다시 보기</b>
+            <p>이번 주행 거리, 처음 달린 길, 첫 방문 지역을 화면에 표시하고 “오늘 처음 달린 길 12.4킬로미터”처럼 음성으로 읽는다. 다시 보기는 드라이브 하나, 지역 하나, 또는 전체 기록을 달린 순서대로 3.5~12초 동안 다시 그린다.</p>
+          </li>
+          <li>
+            <b>QR로 휴대폰에 카드 3종을 보낸다</b>
+            <p>정차 중 공유를 누르면 이번 드라이브·내 지도·가 본 곳 카드가 QR로 나온다. 휴대폰 카메라로 찍으면 이 사이트가 1080×1080 또는 1080×1920 이미지를 그린다. 출발·도착 지점에서 300m 안의 경로는 카드에서 지운다(기본 켬).</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="block" aria-labelledby="samples-title">
+        <h2 id="samples-title">샘플 카드</h2>
+        <p class="sub">차가 QR 주소에 넣는 것과 같은 형식의 데이터로 그린 카드다. 공유 페이지에서 비율(정사각형·스토리)과 바탕 배색을 바꾸고, 이미지로 저장하거나 공유한다.</p>
+        <ul class="rows">
+          <li><a data-sample="drive" href="s/#AEAQDPYTYQCLMLUDH2FDYAA55SR3Z25HSAQOXE445OO3Z3E5WTV3RDBAYK3SB2VQQDWY7CIBBUEAYAAHBJXG7AGGBEGQYAAHBJXG7AGGAMBAIBO6ZICIRPYPCAKACAQFCIAAECPMAEAAAAQKAIOAABQGBADAIBQEAQCAIBQABIABQAQSBQAQMAACAADAMBQEAABAMDAEBIBAIAAEAYDAEAQCAADAAAQCAACAIBACAIAQEAAEAECACCAAAQAQEAACAIAAIBAKDAFBAAQEAIFAECQEBIBAMBQOAIBAAAQEAYDAIAQCAABAEAQCAICAMAQCAYDAIBQCAIBAIAAGAACAGFQCAQAAIAQCAEGAABABBAAQEAAEAICAAAQMBYBAUBAKAAJACAQAAIAQIAIMAABAMCQCAIAAIAQEAAEAGGACBIBAMAACAQEAMBAMBQBAIAQEAABAABQFCQAQIAYEBEGAGBQBAYAQQAIMAEFAWGQAAYAAIAAGAACAMFQMEIFBEAQEAICAACAABYAAMAIEAABAEAQEAEBAAAQCAQCAEAQGAICAIBQAAQAAIAQCAABAIAQABICAMAQGAIEAIDAEAABAEAQMBIDAMDQKBAEAIBQGAYBAABABAQAQAAQGAYBAEAQEBIIAIBAEAQEAQCQKAIAAIAACAICAEFQWAIBAEBQAAQAAEAQEAICAEBACAIBAEBQCAQAAEAAIAMBAABACAQEAAAQABAAAEAACBAGAEAQGAQBAEAQEAQGAEBAEAQDAEAQAAYEAEBQCBIBAIBQEAIBAICQEAYEAUAACAEAAAAIBAEAQAAIAAMCAGBQBAQAQIBIEAEAACAQBAAAQAAIAAMAAGAQBAMAQKAIBAEAQAAIBAAAQCAIAAUAAGAABAAAQC"><b>드라이브 카드</b><span>가평 주말 드라이브 — 주행 거리와 처음 달린 길</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="trip" href="s/#AEAQDRQTYIB4OX72VMA47IYBAAG6VMEV5OTISIHMS6WO3FUJAEKQQZD3P2A4PTWQZAFQ2AQVMR5X5AOHZ3IMQAYFAUBNVSQEQS7Q6AABAIGAAAAABEAQCBYGAMIAIEAFBYAAUCYKAMFAOCAHAQBQGAAAAMDAKEACAYAAABIQAEHAEEQEBAAAECO6AEAAAGIOA4CAOARBCICBIAIGB4EC6LAVCI5TYAAOAQBA4BQIAIATECQ2AAFAGDAPBYBQQBYYBMPAGCQAEAAQMBYOAEJAKFQDDYAQ4DZQAEIA2GQDBYAREBQEAIEACNQCCIGDUAZYAJAAKRQADYBBIAI6BAUAQJQABYBSABRMAIFAYGAOEQBA4A2EAYMAACAJFQAQQAQKAQJAALQIDYAAQBI6CE2ACDQABYECEAQMAMJA2JQABICBAAAMAMRAEBAWBADAQAQIAEJAMEQADYCAYBAKCIMCMGAEBACBUEQYAAGAKMQHCYCRAAAMAICAIAQOAIKAYCACBQBQIAQCAQBAQAIIAMFAKCADAQAQ4AAMBAJBADAIBQCAMBAOBQIAACAABYCBQBQQAAJAUGACAYEAMBQKBQEAQDAGCQBBQBQOHRJAMHQIDAABMAYWAADAECAGBAMBYEAYBYFAQDQEAQHAIBAIAQDAEBQDBYARUAAGAIDAMCAOAQGAUCQQAIGAECAUCIBAMDTIBQNAQHQKCADBECREAIKAULAQDABAQAAGAEEASDQDBIBCYAAMAUHBGIADBYARAAQQAAIAECAEAYDAIJABCADQMAIIAIDAQBQCCIARMEAMAEEAABAGBAGAYBQGAYCAMBAOAQDBIEAEAYAAUAAMAUEBOCAJAABQCAYQCUJAEBAGAAEAMAQGAAFAEEQIAICAIAIB"><b>여행 카드</b><span>강릉 여행 — 장거리 드라이브 1개를 QR 1개에 넣은 카드</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="myMap" href="s/#AEBAFRQTAAAJPVQD3G2QEDQAAELQGNIEAPRMUBEMX4HQYEQHCQBQEAAABUEAIBAAAAMUMA2AEELAGAYAAARRAAQIAMBQYCA6BUDQ6AYCH2NQCARNAICAEFILBABTIHZAAMBAAAADAQBAEAAAAEDAGAQAAABQYAQDAAAAOHQGDQAQEAAABYKAEAQAAADAYAQCAIBBEDQBAIAAABQGAIBAAAAACIAQEAAABMFAEAQAAARQAAICAAAA2AQCAIAAAEIMAEBEYCYEA4AQGG45AEOB2CBXAQBBENQEFIBAEAAADIUACAQAAABCMAQDAAABIABAGIAQGAAACAFAKHQCAUAAAKTAEYXAKSQKBYAQEAAAAQFAEAYAAAADMECSAEBAAAAUDIBAEAAABUSACAQAAAISIAQCAAAA2OQBAIAAACA4AIBAAAAYKIAQGAAAAEEA4BQCAIAAAVRKAEBAAAAUCABAEAAABAEACAQAAAOBEAQJAAAEUSQMDQOAEBAWJJWCWFQJB4LQCAICFOSQCDYRAEBDGNY3B4AQE6KJAUCQCAQNGMER2AICATBQEAYDAEBFL2IBAIHQCAQCBUCQOAICHUXQAKIBHRSSESZGAINJCAMCAECBAFQIBBLCWWA3SIASG2ASUAAQPDQCCBHAEWQ6KQBGICZUBZYBSYAKHQITQACIDYKA4YBYGANDUE3QIIMA6QBUJYKGQJBKBY5DYUQOGYATURCUCYIAEQBACYSDYDTIJTPACDZGAI4B2PACHAFAUOQLEYFCUDQ6DYSDUBIUEUDAGEATCIHAUBBCBABAEAQAAABAGAIVAIDBADJKBANB3FABGENB6PAJDQSVETI4AFJESHRHAESRIMYUCMLAGGA3HYGFAMZEABHB6"><b>내 지도</b><span>저장한 모든 드라이브의 도로, 지난 횟수에 따라 5단계 굵기</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+          <li><a data-sample="regions" href="s/#AEBQBRQTAAAJPVQDAAHAAAIXRU2GAAAAAAAAAAAAAAABBQAAJABQAAAAAAAAAAGAJGAQAAA"><b>가 본 곳</b><span>전국 230개 시·군·구 중 방문한 곳</span><svg aria-hidden="true"><use href="#i-chev" /></svg></a></li>
+        </ul>
+        <p class="privacy"><svg aria-hidden="true"><use href="#i-lock" /></svg><span>카드 데이터는 QR 주소의 <code>#</code> 뒤에만 들어간다. 브라우저는 <code>#</code> 뒤 내용을 서버로 보내지 않으므로, 카드는 휴대폰 브라우저 안에서 그려지고 기록은 어떤 서버에도 저장되지 않는다. 이 사이트는 분석 도구를 쓰지 않고 다른 사이트에 요청하지 않는다.</span></p>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p class="foot-links">
+        <a href="https://github.com/geunbonGit/daedongchajido" rel="noopener">GitHub</a>
+        <a href="https://github.com/geunbonGit/daedongchajido/releases/latest" rel="noopener">APK (최신 릴리스)</a>
+        <a href="s/">공유 카드 뷰어</a>
+      </p>
+      <p>
+        지역 경계: 본 데이터는 통계청 통계지리정보서비스(SGIS, <a href="https://sgis.kostat.go.kr" rel="noopener">sgis.kostat.go.kr</a>)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor,
+        <a href="https://github.com/vuski/admdongkor" rel="noopener">github.com/vuski/admdongkor</a>), <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" rel="noopener">CC BY 4.0</a>으로 배포됩니다. 시·군·구 단위 병합·단순화: 대동차지도.
+      </p>
+      <p>글꼴: Pretendard (SIL Open Font License 1.1, 웹용으로 나눠 ‘Chajido Sans’로 이름을 바꿈 — <a href="fonts/LICENSE.txt">라이선스</a>).</p>
+    </footer>
+  </body>
+</html>

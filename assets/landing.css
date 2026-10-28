@@ -1,0 +1,442 @@
+/* Landing page for judges. 발자취 type scale (design-footprint-ref §3): 큰 제목 28/800, 묶음 제목 24/32/800, 본문 16,
+   메타 13/500 · 종이 위에 먹 · 박스 안에 박스 금지 (rows are separated by hairlines). Colors: tokens.js variables only. */
+
+body {
+  overflow-x: hidden;
+}
+
+main,
+.bar,
+.foot {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+}
+
+/* ── top bar ─────────────────────────────────────────── */
+.bar {
+  height: 56px;
+  margin-top: env(safe-area-inset-top);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bar .lockup {
+  font-size: 18px;
+}
+.bar-link {
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--text);
+  padding: 8px 2px;
+}
+
+/* ── hero (paper + 44 px grid, like the card) ───────────────────── */
+.hero {
+  display: grid;
+  gap: 28px;
+  padding: 20px 0 8px;
+}
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.hero h1 {
+  margin: 0;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+/* name block: 대동차지도 · 大東車地圖 · meaning · tagline */
+.hero .name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 12px;
+}
+.hanja {
+  margin: 4px 0 0;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  color: var(--text-soft);
+}
+.meaning {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.tagline {
+  margin: 20px 0 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.lead {
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 27px;
+  color: var(--text-soft);
+  max-width: 30em;
+}
+.cta {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.pill {
+  flex: 1 1 0;
+  height: 52px;
+  border-radius: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 160ms ease;
+}
+.pill:active {
+  transform: scale(0.97);
+}
+.pill svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  flex: none;
+}
+.pill-ink {
+  background: var(--ink);
+  color: var(--text-inverse);
+}
+.pill-soft {
+  background: var(--surface-strong);
+  color: var(--text);
+}
+
+.hero-card {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-soft);
+}
+.hero-card-frame {
+  display: block;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  background: var(--paper);
+  box-shadow: var(--stage-shadow);
+  transition: transform 200ms ease;
+}
+.hero-card:active .hero-card-frame {
+  transform: scale(0.985);
+}
+.hero-card-frame img {
+  width: 100%;
+  height: 100%;
+}
+.hero-card-cap {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+/* ── sections ──────────────────────────────────────────── */
+.block {
+  padding: 44px 0 4px;
+}
+.block h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 800;
+  letter-spacing: -0.017em;
+}
+.sub {
+  margin: 6px 0 18px;
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--text-soft);
+}
+
+/* video slot: assets/demo.mp4 (1920×1080), poster until it plays; a note when the file is not there yet */
+.video {
+  position: relative;
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--surface);
+  aspect-ratio: 16 / 9;
+  box-shadow: var(--stage-shadow);
+}
+.video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--surface);
+}
+.video-missing {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 17px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.14);
+}
+.video-missing[hidden] {
+  display: none;
+}
+.video-missing svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  fill: currentColor;
+}
+
+/* screenshots: swipe on phones, 2 × 2 from tablets */
+.screens {
+  list-style: none;
+  margin: 0 -20px;
+  padding: 0 20px 8px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 82%;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 20px;
+  scrollbar-width: none;
+}
+.screens::-webkit-scrollbar {
+  display: none;
+}
+.screens li {
+  scroll-snap-align: start;
+  display: grid;
+  gap: 8px;
+}
+.screens img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1682 / 1210;
+  object-fit: cover;
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+.screens span {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+/* features: numbered rows with hairlines (no boxes) */
+.features {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  counter-reset: f;
+}
+.features li {
+  counter-increment: f;
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  column-gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid var(--divider);
+}
+.features li:last-child {
+  border-bottom: 1px solid var(--divider);
+}
+.features li::before {
+  content: counter(f);
+  grid-row: span 2;
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--text-inverse);
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.features b {
+  font-size: 17px;
+  line-height: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.features p {
+  margin: 2px 0 0;
+  font-size: 15px;
+  line-height: 23px;
+  color: var(--text-soft);
+}
+
+/* sample rows (발자취 이동 줄 ›) */
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 24px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.rows li + li {
+  border-top: 1px solid var(--divider);
+  margin-left: 18px;
+}
+.rows li + li a {
+  padding-left: 0;
+}
+.rows a {
+  display: grid;
+  grid-template-columns: 1fr 20px;
+  column-gap: 8px;
+  align-items: center;
+  min-height: 68px;
+  padding: 12px 14px 12px 18px;
+  text-decoration: none;
+  color: var(--text);
+}
+.rows a:active {
+  background: var(--surface-strong);
+}
+.rows b {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.rows span {
+  grid-column: 1;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+.rows svg {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 20px;
+  height: 20px;
+  fill: var(--text-muted);
+}
+
+.privacy {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--text-soft);
+}
+.privacy svg {
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+  flex: none;
+  fill: currentColor;
+}
+.privacy code {
+  font: inherit;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* ── footer ─────────────────────────────────────────── */
+.foot {
+  margin-top: 48px;
+  padding-top: 20px;
+  padding-bottom: calc(36px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--divider);
+  font-size: 12px;
+  line-height: 19px;
+  color: var(--text-soft);
+}
+.foot p {
+  margin: 0 0 10px;
+}
+.foot a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.foot-links a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* ── wider screens ───────────────────────────────────────── */
+@media (min-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr 360px;
+    align-items: center;
+    gap: 48px;
+    padding: 48px 0 16px;
+  }
+  .hero h1 {
+    font-size: 56px;
+    line-height: 64px;
+  }
+  .hanja {
+    font-size: 19px;
+  }
+  .tagline {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .cta {
+    max-width: 380px;
+  }
+  .screens {
+    margin: 0;
+    padding: 0;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-columns: auto;
+    overflow: visible;
+  }
+  .block {
+    padding-top: 64px;
+  }
+}
+
+/* dark look: hairline edge for the card and the video (shadows vanish on dark paper) */
+:root[data-look='night'] .hero-card-frame,
+:root[data-look='night'] .video {
+  box-shadow: 0 0 0 1px var(--divider), var(--stage-shadow);
+}
